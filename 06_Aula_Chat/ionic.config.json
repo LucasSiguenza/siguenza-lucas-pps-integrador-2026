@@ -1,0 +1,7 @@
+{
+  "name": "06_Aula_Chat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

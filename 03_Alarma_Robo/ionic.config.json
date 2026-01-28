@@ -1,0 +1,7 @@
+{
+  "name": "03_Alarma_Robo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

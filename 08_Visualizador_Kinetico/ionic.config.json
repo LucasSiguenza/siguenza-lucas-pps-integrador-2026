@@ -1,0 +1,7 @@
+{
+  "name": "08_Visualizador_Kinetico",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
