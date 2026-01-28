@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">01-Relevamiento-visual</string>
+    <string name="title_activity_main">01-Relevamiento-visual</string>
+    <string name="package_name">marlujo.rel.vis</string>
+    <string name="custom_url_scheme">marlujo.rel.vis</string>
+</resources>

@@ -1,0 +1,485 @@
+/* ===============================
+   ION CONTENT / LAYOUT GENERAL
+   =============================== */
+
+.content-bg {
+  --background: #2D7A86;
+
+  display: flex;
+  justify-content: center;
+}
+
+.layout {
+  height: 90vh; /* header ocupa ~10vh */
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* ===============================
+   BOTONES NAVEGACIÓN
+   =============================== */
+
+.nav-btn {
+  width: 100%;
+  height: 10vh;
+
+  background: #223133;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+
+  ion-icon {
+    font-size: 10vh;
+    color: #1D9DB1;
+
+    filter:
+      drop-shadow(0 0 0.8vh #00BEDC)
+      drop-shadow(0 0 2vh #00BEDC);
+
+    transition: color 0.2s ease, filter 0.2s ease;
+  }
+
+  /* ===============================
+     ESTADO DESHABILITADO
+     =============================== */
+  &:disabled {
+    background: #2B3233;
+    opacity: 0.55;
+
+    ion-icon {
+      color: #6b7d80;
+      filter: none;
+    }
+  }
+}
+
+/* ===============================
+   BOTÓN SUPERIOR
+   =============================== */
+
+.nav-btn.top {
+  height: 10vh;
+}
+
+/* ===============================
+   BOTÓN INFERIOR (ANDROID)
+   =============================== */
+
+.nav-btn.bottom {
+  height: 10.5vh; /* +2vh */
+
+  align-items: flex-start;
+
+  ion-icon {
+    margin-top: 0.1vh;
+    font-size: 10.5vh; /* acompaña el tamaño */
+  }
+}
+/* ===============================
+   CONTENEDOR TELÉFONO (70%)
+   =============================== */
+
+.phone-wrapper {
+  height: 70vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.phone-container {
+  position: relative;
+
+  width: 60vw;
+  height: 68vh;
+
+  background-color: #2B3233;
+  border: 0.4vh solid #000;
+  border-radius: 2vh;
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* ===============================
+   PUBLICACIÓN
+   =============================== */
+
+.post {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 1vh 0;
+  box-sizing: border-box;
+}
+
+/* ===============================
+   IMAGEN / CARRUSEL
+   =============================== */
+
+.post-image {
+  position: relative;
+
+  width: 90%;
+  height: 60%;
+
+  margin: 0 auto;
+
+  /* marco blanco exterior */
+  padding: 1.25vh;
+  padding-right: 0%;
+  padding-left: 0%;
+  z-index: 2;
+  background-color: #223133;
+  border-radius: 1.4vh;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* contenedor real de la imagen */
+.post-image .slides {
+  width: 100%;
+  height: 100%;
+
+  background-color: #223133;
+  border-radius: 1vh;
+
+  display: flex;
+}
+
+/* cada slide */
+.slide {
+  min-width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===============================
+   INFO + BOTÓN
+   =============================== */
+
+.post-info {
+  width: 100%;
+  height: 45%;
+
+  padding: 1.2vh 2vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  box-sizing: border-box;
+}
+
+/* ===============================
+   TEXTO
+   =============================== */
+
+.text-info {
+  text-align: center;
+}
+
+.username {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  color: #00BEDC;
+
+  filter: drop-shadow(0 0 0.5vh #00BEDC);
+}
+
+.fecha {
+  margin-top: 0.3vh;
+
+  font-size: 0.5rem;
+  color: #ffffff;
+  opacity: 0.75;
+}
+
+/* ===============================
+   BOTÓN VOTAR
+   =============================== */
+
+.vote-btn {
+  width: 85%;
+  height: 5.2vh;
+  min-height: 2.8rem;
+
+  border: none;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  color: #000000;
+  background: linear-gradient(
+    135deg,
+    #00BEDC,
+    #1D9DB1
+  );
+
+  border-radius: 3vb;
+  box-shadow:
+    0 0 0 0.4vh rgba(0, 190, 220, 0.25),
+    0 0.8vh 1.6vh rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.2s ease;
+}
+
+.vote-btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.vote-btn:disabled {
+  opacity: 0.4;
+  box-shadow: none;
+}
+
+/* ===============================
+   NOTCH Y BOTONES LATERALES
+   =============================== */
+
+.phone-notch {
+  width: 40%;
+  height: 1.2vh;
+
+  background-color: #000;
+  border-bottom-left-radius: 1vh;
+  border-bottom-right-radius: 1vh;
+}
+
+.phone-button {
+  position: absolute;
+  right: -1.2vh;
+
+  border: 0.4vh solid #000;
+  border-radius: 0.8vh;
+}
+
+.phone-button-top {
+  top: 20%;
+  height: 5%;
+}
+
+.phone-button-bottom {
+  bottom: 35%;
+  height: 7%;
+}
+
+/* ===============================
+   ANIMACIONES DE CAMBIO
+   =============================== */
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0.1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0.1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.anim-exit {
+  animation: slideUp 0.4s ease forwards;
+}
+
+.anim-enter {
+  animation: slideInFromBottom 0.4s ease;
+}
+.fab-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 1.5rem;
+  z-index: 100;
+
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    #00BEDC,
+    #1D9DB1
+  );
+
+  box-shadow:
+    0 0 0 6px rgba(0, 190, 220, 0.25),
+    0 10px 25px rgba(0, 0, 0, 0.35);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  ion-icon {
+    font-size: 34px;
+    color: white;
+  }
+
+  &:active {
+    transform: scale(0.92);
+    box-shadow:
+      0 0 0 3px rgba(0, 190, 220, 0.35),
+      0 6px 15px rgba(0, 0, 0, 0.4);
+  }
+
+  animation: fab-pulse 2.2s infinite;
+}
+
+@keyframes fab-pulse {
+  0% {
+    box-shadow:
+      0 0 0 6px rgba(0, 190, 220, 0.25),
+      0 10px 25px rgba(0, 0, 0, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 0 10px rgba(0, 190, 220, 0.15),
+      0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    box-shadow:
+      0 0 0 6px rgba(0, 190, 220, 0.25),
+      0 10px 25px rgba(0, 0, 0, 0.35);
+  }
+}
+/* ===============================
+   CARRUSEL
+   =============================== */
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.35s ease;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #223133; /* ✅ CLAVE */
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* ===============================
+   BOTONES LATERALES DEL CARRUSEL
+   =============================== */
+
+.nav-side {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 50%;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    color: white;
+    font-size: 20px;
+  }
+
+  &:disabled {
+    opacity: 0.2;
+  }
+}
+
+.nav-side.left {
+  left: 0.5rem;
+}
+
+.nav-side.right {
+  right: 0.5rem;
+}
+
+/* ===============================
+   INDICADORES
+   =============================== */
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.dot.active {
+  background: rgba(255, 255, 255, 0.9);
+}
+

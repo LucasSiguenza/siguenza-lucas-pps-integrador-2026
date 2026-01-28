@@ -1,0 +1,215 @@
+/* ===============================
+   HEADER
+   =============================== */
+
+.custom-header {
+  width: 100vw;
+  height: 10vh;
+}
+
+/* Toolbar limpia y sobria */
+.toolbar-gradient {
+  --background: #1f3f45; /* sólido, elegante */
+
+  height: 10vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 1rem;
+
+  box-shadow:
+    0 0.4vh 1vh rgba(0, 0, 0, 0.35);
+}
+
+/* ===============================
+   FILA PRINCIPAL
+   =============================== */
+
+.header-row {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  /* Añadir separación entre botones */
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+/* zonas */
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrar los elementos dentro de las zonas */
+}
+
+.header-center {
+  flex: 1;
+  justify-content: center; /* Centra los botones en el centro */
+}
+
+/* Empuja a la derecha */
+.header-right {
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+/* ===============================
+   BOTÓN VOLVER
+   =============================== */
+
+.back-btn {
+  background: transparent;
+  border: none;
+
+  color: #ffffff;
+  font-size: 2rem; /* Aumentar el tamaño */
+  font-weight: 700;
+
+  padding: 0.5rem 1rem; /* Aumentar el tamaño del botón */
+  cursor: pointer;
+
+  transition: transform 0.15s ease, opacity 0.15s ease;
+
+  /* Asegurarse que se mantenga centrado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-btn:active {
+  transform: scale(0.92);
+  opacity: 0.85;
+}
+
+/* ===============================
+   BOTONES DE USUARIO Y GRÁFICOS
+   =============================== */
+
+.user-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 50%;
+
+  width: 3.5rem; /* Aumentar el tamaño */
+  height: 3.5rem; /* Aumentar el tamaño */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    font-size: 2rem; /* Aumentar el tamaño del icono */
+    color: white;
+  }
+
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.user-btn:active {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ===============================
+   Alineación y distribución de botones
+   =============================== */
+
+/* Centrado de botones y separación adecuada */
+.header-center button {
+  margin-right: 1rem; /* Separación entre los botones */
+}
+
+/* ===============================
+   RESPONSIVIDAD
+   =============================== */
+
+/* Hacer que los botones sean más grandes en pantallas grandes */
+@media (min-width: 768px) {
+  .user-btn {
+    width: 4rem;
+    height: 4rem;
+    ion-icon {
+      font-size: 2.2rem;
+    }
+  }
+
+  .back-btn {
+    font-size: 2.2rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+/* ===============================
+   WRAPPER BOTÓN MARLUJO
+   =============================== */
+
+.header-btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  height: 100%;
+  width: auto;
+  margin-left: auto;
+
+  /* overrides contextuales */
+  --btn-width: auto;
+  --btn-padding: 0.35rem 0.75rem;   /* 🔑 menos ancho */
+  --btn-margin-top: 0;
+  --btn-font-size: 0.7rem;          /* 🔑 un poco más compacto */
+  --btn-letter-spacing: 0.08em;     /* 🔑 clave para angostar */
+}
+
+/* componente host */
+.header-btn-wrapper app-marlujo-boton {
+  display: flex;
+  align-items: center;
+}
+
+/* botón real interno */
+.header-btn-wrapper .submit-btn {
+  height: 2.4rem;
+  min-height: unset;
+
+  padding: 0 0.75rem;               /* 🔑 acompaña al wrapper */
+  font-size: 0.7rem;
+  line-height: 1;
+
+  border-radius: 999px;
+}
+
+
+/* texto */
+.header-btn-wrapper .btn-text {
+  white-space: nowrap;
+}
+
+.user-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 50%;
+
+  width: 2.6rem;
+  height: 2.6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    font-size: 1.4rem;
+    color: white;
+  }
+
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.user-btn:active {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.18);
+}

@@ -1,0 +1,46 @@
+<br><br>
+<ion-content [fullscreen]="false" class="ion-align-content-center">
+<div class="contenedor-centrado">
+  <form class="glitch-card"
+   [formGroup]="form"
+  (ngSubmit)="iniciarSesion()">
+    <div class="card-header">
+      <div class="card-title">
+        <span>¡Bienvenido!</span>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <app-marlujo-input
+        placeholder="Ingrese su usuario"
+        control="email"
+        mensajeAdicional="Ingrese un formato de email válido"
+        tipo="email"
+        [form]="this.form"
+      ></app-marlujo-input>
+
+      <app-marlujo-input
+        placeholder="Contraseña"
+        control="contrasenia"
+        tipo="password"
+        mensajeAdicional="Toda contraseña posee al menos 6 caracteres"
+        [form]="this.form"
+      ></app-marlujo-input>
+
+      <app-marlujo-boton
+        texto="Iniciar sesion"
+        [tipo]="'submit'"  
+        [color]="'azul'"
+      ></app-marlujo-boton>
+
+    </div>
+  </form>
+</div>
+<div class="ion-wrap">
+  <app-marlujo-cuadrilla-botones
+    [cards]="cuadrillaIconos"
+    [centro]="botonCentral"
+  >
+</app-marlujo-cuadrilla-botones>
+</div>
+</ion-content>

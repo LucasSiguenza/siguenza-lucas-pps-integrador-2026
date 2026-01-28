@@ -1,0 +1,101 @@
+.comic-container {
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  margin: 0;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 #000;
+  background: #000;
+}
+
+/* =========================
+   Botones base
+   ========================= */
+.comic-btn {
+  position: absolute;
+  inset: 0;
+  border: none;
+  cursor: pointer;
+  font-family: 'Arial Black', Impact, sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  transition: transform 0.15s ease;
+  overflow: hidden;
+}
+
+/* Imagen base */
+.comic-btn::before {
+  content: '';
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.75;
+  z-index: 0;
+}
+
+/* Texto */
+.comic-btn span {
+  z-index: 2;
+  text-shadow: 3px 3px 0 #000;
+}
+
+/* Hover moderado (no rompe layout) */
+.comic-btn:hover {
+  transform: scale(1.4);
+}
+
+/* =========================
+   BOTÓN IZQUIERDO (AZUL)
+   Imagen más grande
+   ========================= */
+.comic-btn.left {
+  z-index: 1;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2rem;
+  background: #007E96
+;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    0 100%
+  );
+}
+
+.comic-btn.left::before {
+  background-image: url('/assets/img/cosas-lindas.png');
+  width: 55%;
+  height: 55%;
+  top: 5.5rem;
+  left: 2rem;
+}
+
+/* =========================
+   BOTÓN DERECHO (ROJO)
+   Imagen más chica
+   ========================= */
+.comic-btn.right {
+  z-index: 2;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 2rem;
+  background: #963737;
+
+
+  clip-path: polygon(
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+.comic-btn.right::before {
+  background-image: url('/assets/img/cosas-feas.png');
+  width: 38%;
+  height: 38%;
+  bottom: 2rem;
+  right: 2rem;
+}

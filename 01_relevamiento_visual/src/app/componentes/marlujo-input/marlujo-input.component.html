@@ -1,0 +1,38 @@
+<div class="form-group">
+  @if(tipo!=='password'){
+    <ion-input
+      [type]="tipo"
+      [formControl]="formControl"
+    ></ion-input>
+  } @else {
+      <div class="password-wrapper">
+    <ion-input
+      [type]="verPassword ? 'text' : 'password'"
+      [formControl]="formControl"
+    ></ion-input>
+
+    <button
+      type="button"
+      class="toggle-password"
+      (click)="verPassword = !verPassword"
+      aria-label="Mostrar contraseña"
+    >
+      <ion-icon [name]="verPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+    </button>
+  </div>
+  }
+
+  @if (!formControl.value) {
+    <ion-label class="form-label">
+      {{ placeholder }}
+    </ion-label>
+  }
+
+  @if (form.get(control)?.invalid && form.get(control)?.touched) {
+<br>
+    <div class="validators small mt-1">
+      {{ control | titlecase }} inválido.<br />
+      {{ mensajeAdicional }}
+    </div>
+  }
+</div>

@@ -1,0 +1,136 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+
+@import '@ionic/angular/css/palettes/dark.system.css';
+
+
+//! =======================================================================
+
+
+.contenedor-centrado {
+  --bg-color: #0d0d0d;
+  --primary-color: #00f2ea;
+  --secondary-color: #a855f7;
+  --text-color: #e5e5e5;
+  --font-family: "Fira Code", Consolas, "Courier New", Courier, monospace;
+  --glitch-anim-duration: 0.5s;
+}
+
+.contenedor-centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+  background-color: #050505;
+}
+
+/* Aplica a todo el overlay */
+.custom-loading {
+  --background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(12px);
+  /* 🎯 Efecto glass */
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Evita recuadro central */
+.custom-loading .loading-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Imagen rotatoria */
+.custom-loading::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60vw;
+  height: 40vh;
+  background: url("assets/icon/marlo-relevamiento-visual.png") no-repeat center / contain;
+  transform: translate(-50%, -50%);
+  animation: rotation 0.5s infinite linear;
+}
+
+/* Animación suave */
+@keyframes rotation {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(359deg);
+  }
+}
+
+.modal-agregar-elemento {
+  --width: 85vw;
+  --height: 90vh;
+  --border-radius: 16px;
+  --box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+  display: flex;
+  flex-direction: column;
+
+  ion-content {
+    --padding-top: 0;
+    --padding-bottom: 0;
+    height: 100%;
+  }
+
+  .modal-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.modal-agregar-elemento::part(content) {
+  margin: auto;
+}
+
+.modal-neon {
+  --background: transparent;
+
+  &::part(content) {
+    background: radial-gradient(
+      circle at top,
+      rgba(0, 190, 220, 0.35),
+      rgba(0, 190, 220, 0.15),
+      rgba(0, 0, 0, 0.85)
+    );
+
+    backdrop-filter: blur(10px);
+    border-radius: 1.2rem;
+
+    box-shadow:
+      0 0 20px rgba(0, 190, 220, 0.6),
+      0 0 40px rgba(0, 190, 220, 0.35);
+  }
+}

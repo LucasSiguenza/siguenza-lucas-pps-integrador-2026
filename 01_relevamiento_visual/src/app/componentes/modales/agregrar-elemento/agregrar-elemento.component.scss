@@ -1,0 +1,170 @@
+/* ===========================
+   CONTENEDOR GENERAL
+=========================== */
+
+ion-content {
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+
+  height: 100vh;
+  width: 85vw;
+}
+
+.card {
+  --primary: #00BEDC;
+  --primary-dark: #1d9db1;
+  --primary-soft: rgba(0, 190, 220, 0.15);
+  --text-main: #ffffff;
+  --bg-card: #0f172a;
+
+  min-height: 100vh;
+  width: 85vw;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  padding: 1.2rem;
+  padding-top: calc(1.2rem + env(safe-area-inset-top));
+  padding-bottom: calc(1.2rem + env(safe-area-inset-bottom));
+
+  background-color: var(--bg-card);
+  border-radius: 0;
+}
+
+/* ===========================
+   CARRUSEL
+=========================== */
+
+.carousel {
+  width: 100%;
+  height: 35vh;
+  max-height: 40vh;
+
+  overflow: hidden;
+  border-radius: 0.8rem;
+
+  transition: transform 0.5s ease;
+}
+
+.carousel.expand {
+  transform: scale(1.05);
+}
+
+.slides {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--primary-soft);
+  border: 0.15rem dashed var(--primary);
+  border-radius: 0.8rem;
+  color: var(--primary);
+
+  overflow: hidden;
+}
+
+/* ===========================
+   IMÁGENES
+=========================== */
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 0.6rem;
+}
+
+/* ===========================
+   CONTADOR
+=========================== */
+
+.contador-fotos {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--primary);
+  opacity: 0.85;
+}
+
+/* ===========================
+   FORMULARIO
+=========================== */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.action {
+  margin-top: auto;
+}
+
+.upload-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 1rem;
+  font-size: 1rem;
+
+  background: linear-gradient(90deg, #00BEDC, #1D9DB1);
+  color: #ffffff;
+  font-weight: 600;
+
+  border: none;
+  border-radius: 0.8rem;
+}
+
+/* ===========================
+   BOTÓN CERRAR (ANDROID)
+=========================== */
+
+.close-btn {
+  position: fixed;
+  top: calc(1rem + env(safe-area-inset-top));
+  left: 1rem;
+  z-index: 1000;
+
+  width: 3.5rem;
+  height: 3.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 190, 220, 0.25);
+  backdrop-filter: blur(6px);
+
+  border: none;
+  border-radius: 50%;
+
+  color: var(--primary);
+  font-size: 1.8rem;
+}
+
+.close-btn:active {
+  transform: scale(0.95);
+}
