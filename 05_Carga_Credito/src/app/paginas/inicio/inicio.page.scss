@@ -1,0 +1,134 @@
+/* ============================= */
+/* FONDO NEÓN CENTRAL            */
+/* ============================= */
+
+ion-content.neon-bg {
+  --background: transparent;
+  background:
+    radial-gradient(
+      circle at 50% 44%,
+      rgba(126, 255, 236, 0.35) 0%,
+      rgba(96, 190, 175, 0.25) 18%,
+      rgba(69, 143, 132, 0.18) 32%,
+      rgba(26, 92, 82, 0.35) 52%,
+      rgba(12, 66, 58, 0.65) 70%,
+      #00332b 100%
+    );
+}
+
+/* ============================= */
+/* INFO USUARIO                  */
+/* ============================= */
+
+.info-usuario {
+  margin-bottom: 0.01rem;
+}
+
+.info-card {
+  background: #00332b;
+  border-radius: 1rem;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow:
+    0 0 0.6rem rgba(132, 194, 184, 0.15),
+    inset 0 0 0.4rem rgba(225, 245, 242, 0.05);
+
+  .label {
+    display: block;
+    font-size: 0.85rem;
+    color: #abdbd4;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+
+  .value {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #e1f5f2;
+    text-shadow: 0 0 0.4rem rgba(132, 194, 184, 0.35);
+  }
+}
+/* ============================= */
+/* CONTENEDOR BOTONES           */
+/* ============================= */
+
+.scan-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.2rem;
+  margin-top: 4vh;
+}
+
+/* ============================= */
+/* BOTÓN ESCANEO NEÓN            */
+/* ============================= */
+
+.scan-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 4vh;
+}
+
+ion-button.scan-neon {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+
+  --background: radial-gradient(
+    circle at top,
+    #84c2b8,
+    #2d756a
+  );
+  --color: #00332b;
+
+  box-shadow:
+    0 0 0.6rem rgba(132, 194, 184, 0.6),
+    0 0 1.6rem rgba(69, 143, 132, 0.8),
+    inset 0 0 1rem rgba(225, 245, 242, 0.25);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  ion-icon {
+    font-size: 3rem;
+    filter: drop-shadow(0 0 0.4rem rgba(225, 245, 242, 0.8));
+  }
+
+  &:active {
+    transform: scale(0.94);
+    box-shadow:
+      0 0 0.4rem rgba(132, 194, 184, 0.8),
+      inset 0 0 1.2rem rgba(0, 51, 43, 0.6);
+  }
+}
+ion-button.delete-neon {
+  width: 7.2rem;
+  height: 7.2rem;
+  border-radius: 50%;
+
+  --background: radial-gradient(
+    circle at top,
+    #ff8a8a,
+    #b11226
+  );
+  --color: #3a0008;
+
+  box-shadow:
+    0 0 0.6rem rgba(255, 90, 90, 0.7),
+    0 0 1.4rem rgba(255, 40, 40, 0.9),
+    inset 0 0 0.8rem rgba(255, 220, 220, 0.25);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  ion-icon {
+    font-size: 2.4rem;
+    filter: drop-shadow(0 0 0.4rem rgba(255, 180, 180, 0.9));
+  }
+
+  &:active {
+    transform: scale(0.92);
+    box-shadow:
+      0 0 0.4rem rgba(255, 70, 70, 0.9),
+      inset 0 0 1rem rgba(60, 0, 0, 0.7);
+  }
+}

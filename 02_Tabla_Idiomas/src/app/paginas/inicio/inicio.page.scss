@@ -1,0 +1,73 @@
+.pantalla-juego {
+  width: 100vw;
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+
+  .grid-botones {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    width: 100%;
+    height: 100%;
+
+    &.horizontal {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: 1fr;
+    }
+
+    .boton-principal {
+      width: 100%;
+      height: 100%;
+      font-size: 2rem;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .flotantes {
+    position: absolute;
+    display: flex;
+    gap: 0.5rem;
+
+    &.idiomas {
+      top: 1rem;
+      right: 1rem;
+      flex-direction: column;
+    }
+
+    &.temas {
+      bottom: 4rem;
+      left: 1rem;
+      flex-direction: column;
+    }
+
+    button {
+      width: 4.4rem;
+      height: 4.4rem;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: #00000050;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.2rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      &.seleccionado {
+        border-color: #ffc857;
+        border-width: 0.5rem;
+          box-shadow:
+            0 0 120px rgba(220, 205, 0, 0.8),
+            0 0 240px rgba(167, 177, 29, 0.6),
+            inset 0 0 120px rgba(220, 165, 0, 0.6);// resalta el seleccionado
+      }
+    }
+  }
+}

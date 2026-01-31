@@ -35,3 +35,166 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+
+
+.contenedor-centrado {
+  --bg-color: #0d0d0d;
+  --primary-color: #00f2ea;
+  --secondary-color: #a855f7;
+  --text-color: #e5e5e5;
+  --font-family: "Fira Code", Consolas, "Courier New", Courier, monospace;
+  --glitch-anim-duration: 0.5s;
+}
+
+.contenedor-centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+  background-color: #050505;
+}
+/* ================== Loader Custom ================== */
+
+/* Overlay glass */
+.custom-loading {
+  --background: rgba(38, 1, 4, 0.55); /* rojo oscuro semi-transparente */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Wrapper central */
+.custom-loading .loading-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  width: 25vh;
+  height: 25vh;
+  border-radius: 50%;
+}
+
+/* Anillo neon rojo + celeste */
+.custom-loading .loading-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+
+  /* Glow rojo base */
+  background: rgb(166, 3, 33); /* #A60321 */
+
+  /* Contraste celeste neón */
+  border: 3px solid rgba(220, 0, 0, 0.85); /* #00BEDC */
+
+  box-shadow:
+    /* glow rojo */
+    0 0 14px rgba(166, 3, 33, 0.8),
+    0 0 28px rgba(166, 3, 33, 0.45),
+
+    /* glow celeste */
+    0 0 16px rgba(220, 0, 0, 0.8),
+    inset 0 0 14px rgba(220, 0, 0, 0.6);
+
+  animation: neon-spin 0.7s linear infinite;
+  z-index: 0;
+}
+
+/* Imagen centrada */
+.custom-loading .loading-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 15%;
+  background: url("assets/icon/Marlujo alarma de robo.png") no-repeat center / contain;
+  border-radius: 50%;
+  scale: 1.5;
+  z-index: 2;
+  animation: rotation 0.5s linear infinite;
+}
+
+/* Animación del anillo */
+@keyframes neon-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Animación de giro de la imagen */
+@keyframes rotation {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(359deg); }
+}
+
+/* ============================= */
+/* ALERTA ALARMA – ROJO NEÓN 🔴 */
+/* ============================= */
+
+.alert-alarma-roja {
+  --background: radial-gradient(
+    circle at top,
+    #3b0000,
+    #120000 80%
+  );
+
+  --border-radius: 1.2rem;
+  --backdrop-opacity: 0.85;
+}
+
+/* Caja del alert */
+.alert-alarma-roja .alert-wrapper {
+  border: 2px solid rgba(255, 80, 80, 0.7);
+  box-shadow:
+    0 0 1.5rem rgba(255, 0, 0, 0.6),
+    0 0 3rem rgba(255, 0, 0, 0.4);
+}
+
+/* Título */
+.alert-alarma-roja .alert-title {
+  color: #ffd166;
+  font-weight: 700;
+  letter-spacing: 0.08rem;
+  text-align: center;
+}
+
+/* Mensaje */
+.alert-alarma-roja .alert-message {
+  color: #ffb703;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Input */
+.alert-alarma-roja .alert-input {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 120, 120, 0.6);
+  border-radius: 0.6rem;
+  
+  text-align: center;
+
+  color: #ffd166;
+  caret-color: #ffd166;
+}
+
+/* Placeholder */
+.alert-alarma-roja .alert-input::placeholder {
+  color: rgba(255, 209, 102, 0.6);
+  text-align: center;
+}
+
+/* Botones */
+.alert-alarma-roja .alert-button {
+  color: #ffd166;
+  font-weight: 600;
+}
+
+/* Botón principal */
+.alert-alarma-roja .alert-button:last-child {
+  color: #ff4d4d;
+  text-shadow: 0 0 0.6rem rgba(255, 0, 0, 0.8);
+}

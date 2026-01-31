@@ -22,7 +22,7 @@ export class Utils {
   
   //! ================== Redirección ==================
 async redirigir(ruta: string, sinLoading: boolean = false): Promise<void> {
-
+  this.reproducirSonidoPorDuracion('assets/sonidos/nav.m4a', 1000)
   if (!sinLoading) {
     const carga = await this.loading();
     await carga.present();
@@ -33,6 +33,22 @@ async redirigir(ruta: string, sinLoading: boolean = false): Promise<void> {
 
   await this.enrutador.navigateByUrl(ruta);
 }
+  //! ================== Sonidos ==================
+  reproducirSonidoPorDuracion(path: string, duracionMs: number,
+    volumen: number = 1
+  ): void {
+    const audio = new Audio(path);
+    audio.volume = volumen;
+    audio.currentTime = 0;
+
+    audio.play().catch(() => {});
+
+    setTimeout(() => {
+      audio.pause();
+      audio.currentTime = 0;
+    }, duracionMs);
+  }
+
   //! ================== Loading ==================
   async loading(): Promise<HTMLIonLoadingElement>{
     const loading = await this.cargaCtrl.create({

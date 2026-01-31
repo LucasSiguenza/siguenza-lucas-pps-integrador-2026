@@ -35,3 +35,173 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+
+
+.contenedor-centrado {
+  --bg-color: #0d0d0d;
+  --primary-color: #00f2ea;
+  --secondary-color: #a855f7;
+  --text-color: #e5e5e5;
+  --font-family: "Fira Code", Consolas, "Courier New", Courier, monospace;
+  --glitch-anim-duration: 0.5s;
+}
+
+.contenedor-centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+  background-color: #050505;
+}
+/* ================== Loader Custom ================== */
+
+/* Overlay glass */
+.custom-loading {
+  --background: rgba(34, 49, 51, 0.55); /* fondo semi-transparente */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Wrapper central */
+.custom-loading .loading-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  width: 25vh;
+  height: 25vh;
+  border-radius: 50%;
+}
+
+/* Anillo neon tipo Vice City */
+.custom-loading .loading-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+  background: rgba(153, 0, 255, 0.484); 
+
+  border: 3px solid rgba(0, 190, 220, 0.8); /* #00BEDC */
+  box-shadow:
+    0 0 12px rgba(0, 190, 220, 0.8),
+    0 0 24px rgba(29, 157, 177, 0.6),
+    inset 0 0 12px rgba(0, 190, 220, 0.6);
+
+  animation: neon-spin 0.7s linear infinite;
+  z-index: 0;
+}
+
+/* Imagen centrada dentro del loader usando ::after */
+.custom-loading .loading-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 15%; /* margen dentro del círculo */
+  background: url("assets/icon/Marlujo tabla de idiomas.png") no-repeat center / contain;
+  border-radius: 50%;
+  scale: 1.50;
+  z-index: 2;
+  animation: rotation 0.5s linear infinite;
+
+}
+
+/* Animación del anillo */
+@keyframes neon-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Animación de giro de la imagen */
+@keyframes rotation {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(359deg); }
+}
+/* Posicionar el mensaje debajo del círculo relativo al overlay */
+.custom-loading .loading-wrapper .loading-message {
+  position: absolute;
+  top: calc(50% + 20vh); /* 50% del overlay + radio del círculo aprox */
+  left: 50%;
+  transform: translateX(-50%);
+  color: #00BEDC;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 0 0 8px rgba(0, 190, 220, 0.7);
+  text-align: center;
+  z-index: 3;
+}
+/* =============================== */
+/* MODAL DESAFÍO – WRAPPER GLOBAL */
+/* =============================== */
+
+.modal-desafio-wrapper {
+  --width: 92vw;
+  --height: 92vh;
+  --border-radius: 20px;
+
+  /* Sombra + glow neón */
+  --box-shadow:
+    0 0 0 2px rgba(0, 229, 255, 0.35),
+    0 0 25px rgba(0, 229, 255, 0.45),
+    0 0 45px rgba(145, 59, 196, 0.55),
+    0 25px 60px rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Centro real del modal */
+.modal-desafio-wrapper::part(content) {
+  margin: auto;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* Contenedor interno */
+.modal-desafio-wrapper .modal-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ion content sin padding inútil */
+.modal-desafio-wrapper ion-content {
+  --padding-top: 0;
+  --padding-bottom: 0;
+  height: 100%;
+}
+
+/* Borde neón animado (MUY Vice City) */
+.modal-desafio-wrapper::part(content)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(
+    120deg,
+    #00E5FF,
+    #913BC4,
+    #FF4FD8,
+    #00E5FF
+  );
+  background-size: 300% 300%;
+  animation: neonBorder 6s linear infinite;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes neonBorder {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}

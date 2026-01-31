@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'marlujo.visualizador.kinetico',
   appName: '08_Visualizador_Kinetico',
   webDir: 'www'
 };

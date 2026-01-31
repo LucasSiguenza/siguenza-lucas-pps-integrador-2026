@@ -1,0 +1,34 @@
+<ion-content
+fullscreen
+class="inicio-content"
+[class.alarma-on]="alarmaActiva"
+>
+<app-marlujo-header></app-marlujo-header>
+<br><br>
+<form [formGroup]="form">
+
+    <div class="usuario-container">
+        <ion-input
+      label="Contraseña"
+      label-placement="stacked"
+      formControlName = 'contrasenia'
+      fill="outline"
+      class="usuario-input"
+      [type]="alarmaActiva ? 'password' : 'text'"
+      [disabled]="alarmaActiva"
+      [errorText]="'La contraseña debe poseer al menos 4 caracteres'">
+    </ion-input>
+  </div>
+
+  <div class="boton-container">
+    <button
+      class="boton-alarma"
+      [class.presionado]="alarmaActiva"
+      (click)="activarAlarma()"
+    >
+      {{alarmaActiva ? 'Desactivar alarma' : 'Activar alarma'}}
+    </button>
+</div>
+</form>
+
+</ion-content>

@@ -35,3 +35,211 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+
+
+.contenedor-centrado {
+  --bg-color: #0d0d0d;
+  --primary-color: #00f2ea;
+  --secondary-color: #a855f7;
+  --text-color: #e5e5e5;
+  --font-family: "Fira Code", Consolas, "Courier New", Courier, monospace;
+  --glitch-anim-duration: 0.5s;
+}
+
+.contenedor-centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+  background-color: #050505;
+}
+/* ================== Loader Custom ================== */
+
+/* Overlay glass */
+.custom-loading {
+  --background: rgba(34, 49, 51, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Wrapper central */
+.custom-loading .loading-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  width: 25vh;
+  height: 25vh;
+  border-radius: 50%;
+}
+
+/* ===================== */
+/* ANILLO NEÓN VICE CITY  */
+/* ===================== */
+.custom-loading .loading-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 200, 87, 0.15),
+    rgba(255, 107, 61, 0.12)
+  );
+
+  border: 3px solid rgba(255, 200, 87, 0.95); /* amarillo neón */
+
+  box-shadow:
+    0 0 14px rgba(255, 200, 87, 0.9),
+    0 0 28px rgba(255, 200, 87, 0.7),
+    0 0 45px rgba(255, 107, 61, 0.65), /* rojo/coral */
+    inset 0 0 14px rgba(255, 255, 255, 0.35);
+
+  animation: neon-spin 0.75s linear infinite;
+  z-index: 0;
+}
+
+/* ===================== */
+/* LOGO CENTRAL           */
+/* ===================== */
+.custom-loading .loading-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 18%;
+
+  background: url("assets/icon/Marlujo juego de la memoria.png")
+    no-repeat center / contain;
+
+  border-radius: 50%;
+  scale: 1.45;
+
+  filter:
+    drop-shadow(0 0 6px rgba(255, 200, 87, 0.8))
+    drop-shadow(0 0 14px rgba(255, 107, 61, 0.6));
+
+  z-index: 2;
+  animation: rotation 0.6s linear infinite;
+}
+
+
+/* Animación del anillo */
+@keyframes neon-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Animación de giro de la imagen */
+@keyframes rotation {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(359deg); }
+}
+/* Posicionar el mensaje debajo del círculo relativo al overlay */
+.custom-loading .loading-wrapper .loading-message {
+  position: absolute;
+  top: calc(50% + 20vh); /* 50% del overlay + radio del círculo aprox */
+  left: 50%;
+  transform: translateX(-50%);
+  color: #00BEDC;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 0 0 8px rgba(0, 190, 220, 0.7);
+  text-align: center;
+  z-index: 3;
+}
+.alert-victoria {
+  /* Fondo sunset dorado */
+  --background: linear-gradient(
+    145deg,
+    #F2E1AE 0%,
+    #D9B573 35%,
+    #A67F38 100%
+  );
+
+  --color: #1b2b2e;
+
+  text-align: center;
+  border-radius: 1.6rem;
+
+  /* Marco neon vice */
+  box-shadow:
+    0 0 0 2px #FFC857,                /* amarillo neón */
+    0 0 0 5px rgba(255, 200, 87, 0.35),
+    0 0 28px rgba(255, 200, 87, 0.9), /* glow principal */
+    0 0 55px rgba(0, 190, 220, 0.45), /* cian vice city */
+    inset 0 0 22px rgba(255, 255, 255, 0.25);
+
+  animation: vice-pulse 2.4s ease-in-out infinite;
+
+  /* ===================== */
+  /* TÍTULO                */
+  /* ===================== */
+  .alert-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+
+    color: #5B4B1A;
+
+    text-shadow:
+      0 0 6px rgba(255, 255, 200, 0.9),
+      0 0 14px rgba(255, 200, 87, 1),
+      0 0 28px rgba(255, 107, 61, 0.6); /* coral sunset */
+  }
+
+  /* ===================== */
+  /* MENSAJE               */
+  /* ===================== */
+  .alert-message {
+    margin-top: 0.8rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+
+    color: #333022;
+
+    text-shadow:
+      0 1px 2px rgba(255, 255, 255, 0.855),
+      0 0 8px rgba(220, 0, 0, 0.722);
+  }
+}
+
+/* ===================== */
+/* ANIMACIÓN NEÓN VICE    */
+/* ===================== */
+@keyframes vice-pulse {
+  0% {
+    box-shadow:
+      0 0 0 2px #FFC857,
+      0 0 0 5px rgba(255, 200, 87, 0.3),
+      0 0 22px rgba(255, 200, 87, 0.7),
+      0 0 42px rgba(0, 190, 220, 0.3),
+      inset 0 0 18px rgba(255, 255, 255, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 3px #FFD966,
+      0 0 0 6px rgba(255, 200, 87, 0.55),
+      0 0 38px rgba(255, 200, 87, 1),
+      0 0 65px rgba(0, 190, 220, 0.55),
+      inset 0 0 26px rgba(255, 255, 255, 0.35);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 2px #FFC857,
+      0 0 0 5px rgba(255, 200, 87, 0.3),
+      0 0 22px rgba(255, 200, 87, 0.7),
+      0 0 42px rgba(0, 190, 220, 0.3),
+      inset 0 0 18px rgba(255, 255, 255, 0.2);
+  }
+}

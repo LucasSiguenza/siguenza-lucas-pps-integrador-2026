@@ -1,0 +1,45 @@
+<app-marlujo-header></app-marlujo-header>
+<br>
+<ion-content class="content-bg">
+  <div class="layout">
+
+    <!-- FEOS -->
+    <section class="graph-slide">
+      <div class="graph-wrapper">
+
+        <!-- gráfico -->
+        <div class="graph-area">
+          <canvas id="barChart"></canvas>
+        </div>
+
+        <!-- nombres -->
+        <div class="names-area feos">
+          @for (item of feos; track item.id) {
+            <p>{{ item.nombre }}</p>
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LINDOS -->
+    <section class="graph-slide">
+      <div class="graph-wrapper">
+
+        <!-- gráfico -->
+        <div class="graph-area">
+          <canvas id="pieChart"></canvas>
+        </div>
+
+        <!-- nombres -->
+        <div class="names-area lindos">
+          @for (item of lindos; track item.id) {
+            <p>{{ item.nombre }}</p>
+          }
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</ion-content>

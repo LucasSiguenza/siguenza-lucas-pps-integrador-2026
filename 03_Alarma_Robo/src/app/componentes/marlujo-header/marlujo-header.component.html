@@ -1,0 +1,71 @@
+<ion-header class="custom-header">
+  <ion-toolbar class="toolbar-gradient">
+    @if(this.orientacion === 'horizontal'){
+      <br>
+    }
+    <br>
+    <br>
+
+    <div class="header-row">
+
+      <!-- Izquierda: volver -->
+      <div class="header-left">
+        <button
+          class="back-btn"
+          type="button"
+          (click)="volver()"
+          [disabled]="estoyEnInicio"
+          aria-label="Volver"
+        >
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+        <br>
+      </div>
+
+      <!-- Centro: usuario -->
+      <!-- <div class="header-center"> -->
+        <!-- @if(this.rol !== 'anonimo'){
+          <button
+          class="user-btn"
+          type="button"
+          aria-label="Usuario"
+          (click)="irAMiPerfil()"
+        >
+          <ion-icon name="person-outline" ></ion-icon>
+        </button>
+      }
+        <button
+          class="user-btn"
+          type="button"
+          aria-label="Gráficos"
+          (click)="irAGraficos()"
+        > 
+      <ion-icon name="bar-chart-outline"></ion-icon>        
+      </button>-->
+        <!-- <button
+          class="user-btn"
+          type="button"
+          aria-label="Gráficos"
+          (click)="alternarOrientacion()"
+        >
+        <ion-icon name="git-compare-outline"></ion-icon>
+      </button>
+      </div>  -->
+
+      <!-- Derecha: cerrar sesión -->
+
+      <div class="header-right">
+        <div class="header-btn-wrapper">
+          <app-marlujo-boton
+            texto="Cerrar sesión"
+            color="rojo"
+            tipo="button"
+            (click)="logout()"
+          />
+        </div>
+      </div>
+
+    </div>
+<br>
+  </ion-toolbar>
+</ion-header>

@@ -1,0 +1,33 @@
+<app-marlujo-header></app-marlujo-header>
+
+<ion-content class="pantalla-juego">
+  <div class="contenedor-dificultad">
+
+    <h2 class="titulo-bienvenida">
+      ¿Qué nivel de dificultad querés jugar?
+    </h2>
+
+    <div class="grupo-botones">
+      <ion-button class="btn-dificultad facil" (click)="redirigirDificultad('facil')">
+        Fácil
+      </ion-button>
+      
+      <ion-button class="btn-dificultad medio" (click)="redirigirDificultad('medio')">
+        Medio
+      </ion-button>
+
+      <ion-button class="btn-dificultad dificil" (click)="redirigirDificultad('dificil')">
+        Difícil
+      </ion-button>
+    </div>
+
+    <ion-button
+      fill="clear"
+      class="btn-ranking"
+      routerLink="/top-puntuaciones">
+      
+      Ver mejores puntuaciones
+    </ion-button>
+
+  </div>
+</ion-content>

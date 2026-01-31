@@ -1,0 +1,115 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* ===============================
+   CONTENEDOR GENERAL
+   =============================== */
+
+.main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===============================
+   BLOQUE 2x2
+   =============================== */
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+.up,
+.down {
+  display: flex;
+  gap: 0.4em;
+}
+
+/* ===============================
+   BOTONES BASE
+   =============================== */
+
+.card {
+  width: 90px;
+  height: 90px;
+  background: #2D7A86;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  transition: transform 0.2s ease, background-color 0.2s ease;
+
+  img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.07);
+
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
+}
+
+/* ===============================
+   BOTÓN CENTRAL (OVERLAY)
+   =============================== */
+
+.card.centro {
+  position: absolute;
+  z-index: 5;
+
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+
+  background-color: #00BEDC;
+
+  box-shadow:
+    0 0 0.8rem rgba(0, 190, 220, 0.6),
+    0 0 1.4rem rgba(0, 190, 220, 0.4);
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &:hover {
+    background-color: #1D9DB1;
+  }
+}
+
+/* ===============================
+   ESQUINAS
+   =============================== */
+
+.arriba-izquierda  { border-radius: 90px 8px 8px 8px; }
+.arriba-derecha    { border-radius: 8px 90px 8px 8px; }
+.abajo-izquierda   { border-radius: 8px 8px 8px 90px; }
+.abajo-derecha     { border-radius: 8px 8px 90px 8px; }
+
+/* ===============================
+   COLORES HOVER
+   =============================== */
+
+.pink:hover   { background-color: #cc39a4; }
+.blue:hover   { background-color: #00f2ea; }
+.black:hover  { background-color: #000; }
+.violet:hover { background-color: #8c9eff; }
+.green:hover  { background-color: #4caf50; }

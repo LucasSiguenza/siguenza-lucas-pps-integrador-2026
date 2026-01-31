@@ -1,0 +1,43 @@
+<app-marlujo-header></app-marlujo-header>
+@if(this.isTerminado()){
+  <ion-button
+    class="btn-replay-floating"
+    (click)="iniciarJuego()">
+    ↻
+  </ion-button>
+}
+@if (isTerminado()) {
+  <ion-button
+    class="btn-score-floating"
+    fill="solid"
+    shape="round"
+    (click)="registrarPuntuacion()"
+    >
+    Registrar<br>puntuación
+  </ion-button>
+}
+<ion-content class="pantalla-juego">
+
+  <div class="timer">
+    {{ tiempo }}s <br>
+  </div>
+
+<div class="grid-cartas" [class]="dificultad">
+    @for (carta of cartas; track carta.id) {
+      <div
+        class="carta"
+        [class.descubierta]="carta.descubierta"
+        (click)="seleccionarCarta(carta)"
+      >
+        <div class="carta-inner">
+          <div class="carta-front"></div>
+          <div
+            class="carta-back"
+            [style.backgroundImage]="'url(' + carta.imagen + ')'"
+          ></div>
+        </div>
+      </div>
+    }
+  </div>
+
+</ion-content>

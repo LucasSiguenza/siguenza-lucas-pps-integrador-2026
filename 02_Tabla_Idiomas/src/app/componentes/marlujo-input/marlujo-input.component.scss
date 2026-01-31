@@ -1,0 +1,107 @@
+.form-label {
+  position: absolute;
+  top: 0.75em;
+  left: 0;
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* --- Form Elements --- */
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-group ion-input {
+  width: 100%;
+  color: #00f2ea;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(0, 242, 234, 0.3);
+  padding: 0.75em 0;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+}
+
+.form-group input:focus + .form-label,
+.form-group input:not(:placeholder-shown) + .form-label {
+  top: -1.2em;
+  font-size: 0.8rem;
+  opacity: 1;
+}
+
+.form-group input:focus + .form-label::before,
+.form-group input:focus + .form-label::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+}
+
+.form-group input:focus + .form-label::before {
+  color: var(--secondary-color);
+  animation: glitch-anim var(--glitch-anim-duration)
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.form-group input:focus + .form-label::after {
+  color: var(--primary-color);
+  animation: glitch-anim var(--glitch-anim-duration)
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+}
+.validators {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+
+  font-size: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #ff4d4f; /* rojo legible, no saturado */
+  background-color: rgba(255, 77, 79, 0.08);
+
+  border-left: 3px solid #ff4d4f;
+  border-radius: 0 4px 4px 0;
+
+  font-family: inherit;
+}
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 0;
+  bottom: 0.75em;
+
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  color: var(--primary-color);
+  opacity: 0.7;
+
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.toggle-password:hover {
+  opacity: 1;
+}

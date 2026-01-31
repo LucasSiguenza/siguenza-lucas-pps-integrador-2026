@@ -1,0 +1,263 @@
+
+/* ============================= */
+/* VICE CITY NEON – MARLUJO 🌴🌆 */
+/* ============================= */
+
+/* Base oscura (fondo modal / cards) */
+$vc-bg-deep: #0F1E22;        // más oscuro que #223133
+$vc-bg-card: #162C33;
+
+/* Azul petróleo (base tuya refinada) */
+$vc-blue-main: #1D9DB1;
+$vc-blue-soft: #2D7A86;
+$vc-cyan-neon: #00E5FF;     // neon controlado
+$vc-cyan-glow: rgba(0, 229, 255, 0.35);
+
+/* Violetas Vice */
+$vc-violet-main: #913BC4;
+$vc-violet-soft: #A775C4;
+$vc-violet-deep: #331545;
+$vc-violet-glow: rgba(145, 59, 196, 0.45);
+
+/* Acentos neon */
+$vc-pink-neon: #FF4FD8;
+$vc-coral-neon: #FF6B3D;
+$vc-yellow-neon: #FFC857;
+
+/* Estados */
+$vc-success: #00F5A0;
+$vc-danger: #FF3B3B;
+
+/* Texto */
+$vc-text-main: #F2F6F7;
+$vc-text-muted: #C9D4D6;
+
+.modal-desafio {
+  height: 100%;
+  position: relative;
+
+  background:
+    /* LINTERNAAAA 🔦 */
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(145, 59, 196, 0.35) 40%,
+      rgba(51, 21, 68, 0.85) 70%,
+      rgba(15, 30, 34, 0.95) 100%
+    ),
+
+    /* HALO VIOLETA EXTRA (estridente) */
+    radial-gradient(
+      circle at center,
+      transparent 35%,
+      rgba(145, 59, 196, 0.55) 65%,
+      rgba(145, 59, 196, 0.85) 85%
+    );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 88%;
+
+    height: 50vh;
+    margin: 1.2rem auto 0;
+    border-radius: 1.2rem;
+    box-shadow:
+      0 0 25px rgba(145, 59, 196, 0.8),
+  }
+
+  ion-card-content {
+    padding: 1.5rem;
+  }
+
+  .pregunta {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+    color: #F2F6F7;
+    margin: 1.4rem 0;
+    text-shadow:
+      0 0 22px rgba(145, 59, 196, 0.7);
+  }
+
+  .botones-respuesta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.2rem;
+    background-color: transparent;
+
+   ion-button {
+  flex: 1;
+  height: 3.4rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 1rem;
+
+
+  /* CLAVE */
+  overflow: hidden;
+
+  &::after {
+    display: none !important;
+  }
+}
+
+
+
+    ion-button.exito {
+      --background: linear-gradient(135deg, #00F5A0, #00E5FF);
+      color: #F2F6F7;
+       text-shadow:
+      0 0 22px rgba(145, 59, 196, 0.7);
+      box-shadow:
+        0 0 25px rgba(0, 245, 160, 0.9),
+        0 0 40px rgba(0, 229, 255, 0.7);
+    }
+
+    ion-button.temor {
+      --background: linear-gradient(135deg, #FF6B3D, #FF4FD8);
+        color: #F2F6F7;
+        text-shadow:    
+      0 0 22px rgba(145, 59, 196, 0.7);
+      box-shadow:
+        0 0 25px rgba(255, 79, 216, 0.9),
+        0 0 40px rgba(255, 107, 61, 0.7);
+    }
+  }
+
+  .feedback {
+    margin-top: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-align: center;
+    animation: punch 0.4s ease-out;
+
+    &.correcto {
+      color: #00F5A0;
+      text-shadow: 0 0 20px rgba(0, 245, 160, 1);
+    }
+
+    &.incorrecto {
+      color: #FF3B3B;
+      text-shadow: 0 0 20px rgba(255, 59, 59, 1);
+    }
+  }
+}
+
+@keyframes punch {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.modal-desafio {
+  animation: neonPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  0% {
+    filter: brightness(1) saturate(1);
+  }
+  100% {
+    filter: brightness(1.15) saturate(1.3);
+  }
+}
+
+.modal-desafio {
+  --background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Panel único que dialoga con el borde */
+.panel-desafio {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background:
+    radial-gradient(
+      circle at 50% 38%,
+      rgba(145, 59, 196, 0.45) 38%,
+      rgba(51, 21, 68, 0.9) 68%,
+      rgba(15, 30, 34, 1) 100%
+    );
+
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.panel-desafio img {
+  width: 88%;
+  max-height: 45vh;
+  margin: 1.2rem auto 0;
+  border-radius: 1.2rem;
+  object-fit: cover;
+
+  box-shadow:
+    0 0 25px rgba(145, 59, 196, 0.9),
+}
+
+.panel-desafio ion-card-content {
+  padding: 1.5rem;
+}
+/* ===============================
+   LANDSCAPE – DESAFÍO
+   =============================== */
+
+@media screen and (orientation: landscape) {
+
+  .modal-desafio {
+    align-items: stretch;
+  }
+
+  .panel-desafio {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+
+    padding: 0;
+  }
+
+  /* Imagen a la izquierda */
+  .panel-desafio img {
+    width: 45%;
+    height: auto;
+    max-height: 100%;
+    margin: 0;
+
+    border-radius: 0;
+    object-fit: cover;
+  }
+
+  /* Contenido a la derecha */
+  .panel-desafio ion-card-content {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 1.2rem 1.4rem;
+  }
+
+  .pregunta {
+    font-size: 1.15rem;
+    margin: 0.8rem 0 1rem;
+  }
+
+  .botones-respuesta {
+    margin-top: 0.8rem;
+
+    ion-button {
+      height: 2.8rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  .feedback {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+}

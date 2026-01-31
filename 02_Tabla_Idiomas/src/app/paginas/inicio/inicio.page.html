@@ -1,0 +1,41 @@
+<app-marlujo-header></app-marlujo-header>
+<ion-content class="pantalla-juego">
+
+  <!-- Botones principales -->
+  <div class="grid-botones" [class.horizontal]="orientacion === 'horizontal'">
+    @for (btn of botones; track btn.id; let i = $index) {
+      <button
+        (click)="accionBoton(btn, i)"
+        [style.background]="btn.color"
+        class="boton-principal"
+      >
+        {{ btn.label }}
+      </button>
+    }
+  </div>
+
+  <!-- Botones flotantes idiomas -->
+  <div class="flotantes idiomas">
+    @for (idioma of idiomas; track idioma.id) {
+      <button
+        (click)="seleccionarIdioma(idioma.id.toString())"
+        [class.seleccionado]="idiomaSeleccionado === idioma.id.toString()"
+      >
+        <img [src]="idioma.flag" alt="Idioma" />
+      </button>
+    }
+  </div>
+
+  <!-- Botones flotantes temas -->
+  <div class="flotantes temas">
+    @for (tema of temas; track tema.id) {
+      <button
+        (click)="seleccionarTema(tema.id.toString())"
+        [class.seleccionado]="temaSeleccionado === tema.id.toString()"
+      >
+        <img [src]="tema.icon" alt="Tema" />
+      </button>
+    }
+  </div>
+
+</ion-content>

@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'marlujo.juego.memoria',
   appName: '04_Juego_Memoria',
   webDir: 'www'
 };

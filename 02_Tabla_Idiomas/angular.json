@@ -8,7 +8,8 @@
       "schematics": {
         "@ionic/angular-toolkit:page": {
           "styleext": "scss",
-          "standalone": true
+          "standalone": true,
+          "skipTest": true
         }
       },
       "root": "",
@@ -129,20 +130,26 @@
     }
   },
   "cli": {
-    "schematicCollections": ["@ionic/angular-toolkit"]
+    "schematicCollections": [
+      "@ionic/angular-toolkit"
+    ],
+    "analytics": false
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
-      "styleext": "scss"
+      "styleext": "scss",
+      "skipTest": true
     },
     "@ionic/angular-toolkit:page": {
       "styleext": "scss"
     },
     "@angular-eslint/schematics:application": {
-      "setParserOptionsProject": true
+      "setParserOptionsProject": true,
+      "skipTest": true
     },
     "@angular-eslint/schematics:library": {
-      "setParserOptionsProject": true
+      "setParserOptionsProject": true,
+      "skipTest": true
     }
   }
 }

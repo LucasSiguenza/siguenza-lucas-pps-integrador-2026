@@ -1,0 +1,109 @@
+
+
+/* =========================================================
+   FONDO NEÓN CENTRAL – ROSA
+   ========================================================= */
+
+ion-content.neon-bg {
+  --background: transparent;
+
+  background: radial-gradient(
+    circle at 50% 44%,
+    rgba(217, 154, 177, 0.38) 0%,
+    rgba(191, 105, 137, 0.28) 18%,
+    rgba(191, 65, 111, 0.22) 32%,
+    rgba(140, 48, 72, 0.45) 52%,
+    rgba(140, 48, 72, 0.65) 70%,
+    #595048 100%
+  );
+}
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.comic-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+/* =========================
+   Botones base
+   ========================= */
+.comic-btn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: 'Arial Black', Impact, sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Hover tranquilo */
+.comic-btn:hover {
+  transform: translateY(-0.5rem);
+  filter: brightness(1.1);
+}
+
+/* =========================================================
+   TEXTO DENTRO DE LOS BOTONES
+   ========================================================= */
+
+.comic-btn-text {
+  position: absolute;
+  z-index: 2;
+  text-shadow: 3px 3px 0 #000;
+  pointer-events: none;
+}
+
+/* =========================
+   BOTÓN SUPERIOR (ROSA ATENUADO)
+   ========================= */
+.comic-btn.left {
+  background: linear-gradient(
+    180deg,
+    #5c295a 0%,
+    #ff6aa3b1 35%,
+    #c94b8f 100%
+  );
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    0 100%
+  );
+}
+
+.comic-btn.left .comic-btn-text {
+  top: 2rem;
+  left: 1.5rem;
+}
+
+
+/* =========================
+   BOTÓN INFERIOR (VIOLETA ATENUADO)
+   ========================= */
+.comic-btn.right {
+  background: linear-gradient(
+    210deg,
+    #291f45 0%,
+    #5b4b8a 55%,
+    #3f2e63 100%
+  );
+
+  clip-path: polygon(
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+}

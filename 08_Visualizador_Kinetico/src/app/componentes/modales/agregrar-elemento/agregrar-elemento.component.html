@@ -1,0 +1,64 @@
+<button class="close-btn" (click)="cerrar()">
+  <ion-icon name="close-outline"></ion-icon>
+</button>
+<ion-content fullscreen="true">
+
+  <div class="card">
+    <form [formGroup]="form" (ngSubmit)="subirElemento()">
+      <div
+      class="carousel"
+      [class.expand]="animando()"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
+      >
+      
+      <div
+      class="slides"
+    [style.transform]="'translateX(-' + fotoActiva() * 100 + '%)'"
+    >
+    @for (foto of fotos(); track $index) {
+      <div class="slide" (click)="subirFoto($index)">
+        @if (foto) {
+          <div class="photo-preview">
+            <img [src]="foto" alt="">
+          </div>
+        } @else {
+          <ion-icon name="camera-outline"></ion-icon>
+          <span>Agregar foto</span>
+        }
+      </div>
+    }
+  </div>
+</div>
+<div class="contador-fotos">
+  {{ fotoActual() }} / {{ totalFotos }}
+</div>
+
+<br>
+
+<!-- INPUT NOMBRE -->
+<div class="form-group">
+  <label class="label ion-text-center">¿Qué estamos mostrando?</label>
+  
+  
+  <app-marlujo-input
+  placeholder=""
+  control="nombre"
+  tipo="text"
+  mensajeAdicional="Ingrese al menos 3 caracteres"
+  [form]="this.form"
+  ></app-marlujo-input>
+</div>
+
+<!-- ACCIÓN -->
+<div class="action">
+  <button class="upload-button" type="submit">
+    <ion-icon name="cloud-upload-outline"></ion-icon>
+    <span class="ion-text-left">Subir foto</span>
+  </button>
+</div>
+</form>
+
+</div>
+<br><br>
+</ion-content>

@@ -1,0 +1,221 @@
+/* ===============================
+   HEADER
+   =============================== */
+
+.custom-header {
+  width: 100vw;
+  height: calc(10vh + 2rem); /* 2rem arriba + 10vh útiles */
+}
+
+/* ===============================
+   TOOLBAR
+   =============================== */
+
+.toolbar-gradient {
+  --background: #1f3f45 !important;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 2rem 1rem 0.75rem; /* espacio superior real */
+
+  box-shadow: 0 0.4vh 1vh rgba(0, 0, 0, 0.35);
+}
+
+/* ===============================
+   FILA PRINCIPAL
+   =============================== */
+
+.header-row {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===============================
+   ZONAS
+   =============================== */
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-center {
+  flex: 1;
+  justify-content: center;
+}
+
+.header-right {
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+/* ===============================
+   BOTÓN VOLVER
+   =============================== */
+
+.back-btn {
+  background: transparent;
+  border: none;
+
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.back-btn:active {
+  transform: scale(0.92);
+  opacity: 0.85;
+}
+
+/* ===============================
+   BOTONES CIRCULARES (USUARIO / ETC)
+   =============================== */
+
+.user-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 50%;
+
+  width: 2.6rem;
+  height: 2.6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.user-btn ion-icon {
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+.user-btn:active {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ===============================
+   WRAPPER BOTÓN MARLUJO
+   =============================== */
+
+.header-btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  height: 100%;
+  width: auto;
+  margin-left: auto;
+
+  /* overrides del componente */
+  --btn-width: auto;
+  --btn-padding: 0.35rem 0.75rem;
+  --btn-margin-top: 0;
+  --btn-font-size: 0.7rem;
+  --btn-letter-spacing: 0.08em;
+}
+
+/* host del componente */
+.header-btn-wrapper app-marlujo-boton {
+  display: flex;
+  align-items: center;
+}
+
+/* botón interno */
+.header-btn-wrapper .submit-btn {
+  height: 2.4rem;
+  min-height: unset;
+
+  padding: 0 0.75rem;
+  font-size: 0.7rem;
+  line-height: 1;
+
+  border-radius: 999px;
+}
+
+/* texto */
+.header-btn-wrapper .btn-text {
+  white-space: nowrap;
+}
+
+/* ===============================
+   RESPONSIVIDAD (TABLET +)
+   =============================== */
+
+@media (min-width: 768px) {
+
+  .user-btn {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .user-btn ion-icon {
+    font-size: 1.6rem;
+  }
+
+  .back-btn {
+    font-size: 2.2rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+/* ===============================
+   LANDSCAPE
+   =============================== */
+
+@media screen and (orientation: landscape) {
+
+  .custom-header {
+    height: calc(10vh + 1.5rem);
+  }
+
+  .toolbar-gradient {
+    padding: 1.5rem 0.75rem 0.5rem;
+  }
+
+  .back-btn {
+    font-size: 1.8rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .user-btn {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .user-btn ion-icon {
+    font-size: 1.3rem;
+  }
+
+  .header-btn-wrapper {
+    --btn-padding: 0.3rem 0.65rem;
+    --btn-font-size: 0.65rem;
+  }
+
+  .header-btn-wrapper .submit-btn {
+    height: 2.2rem;
+    padding: 0 0.6rem;
+    font-size: 0.65rem;
+  }
+}

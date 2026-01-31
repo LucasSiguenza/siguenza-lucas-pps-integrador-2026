@@ -1,0 +1,78 @@
+<div class="modal-backdrop">
+
+  <!-- BOTÓN CERRAR -->
+  <button class="close-btn" (click)="cerrar()">
+    <ion-icon name="close-circle-outline"></ion-icon>
+  </button>
+
+  <!-- TELÉFONO -->
+  <div class="phone-container">
+
+    <span class="phone-notch"></span>
+
+    <div class="post">
+
+      <!-- CARRUSEL -->
+      <div
+        class="post-image carousel"
+        (touchstart)="onTouchStart($event)"
+        (touchend)="onTouchEnd($event)"
+      >
+        <div
+          class="slides"
+          [style.transform]="'translateX(-' + fotoActiva * 100 + '%)'"
+        >
+          @for (foto of elemento.img ?? []; track $index) {
+            <div class="slide">
+              <img [src]="foto" />
+            </div>
+          }
+        </div>
+
+        <button
+          class="nav-side left"
+          (click)="irAnterior()"
+          [disabled]="fotoActiva === 0"
+        >
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+
+        <button
+          class="nav-side right"
+          (click)="irSiguiente(elemento.img?.length ?? 1)"
+          [disabled]="fotoActiva === (elemento.img?.length ?? 1) - 1"
+        >
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </div>
+
+      <!-- DOTS -->
+      @if ((elemento.img?.length ?? 0) > 1) {
+        <div class="dots">
+          @for (_ of elemento.img; track $index) {
+            <span
+              class="dot"
+              [class.active]="fotoActiva === $index"
+              (click)="irA($index)"
+            ></span>
+          }
+        </div>
+      }
+
+      <!-- INFO -->
+      <div class="post-info">
+        <p class="username">{{ elemento.nombre | titlecase }}</p>
+        <p class="fecha">
+          {{ elemento.subida | formatoFecha }}<br><br>
+          <strong>Tipo: {{ elemento.tipo }}</strong><br>
+          <strong>Votos: {{ elemento.votos }}</strong>
+        </p>
+      </div>
+
+    </div>
+
+    <span class="phone-button phone-button-top"></span>
+    <span class="phone-button phone-button-bottom"></span>
+
+  </div>
+</div>

@@ -1,0 +1,114 @@
+<ion-content class="content-bg">
+  <app-marlujo-header></app-marlujo-header>
+
+  <!-- FAB -->
+  <button class="fab-btn" (click)="agregarElemento()">
+    <ion-icon name="camera-outline"></ion-icon>
+  </button>
+
+  <div class="layout">
+
+  <!-- botón arriba -->
+  <button
+    class="nav-btn top"
+    (click)="paginaAnterior()"
+    [disabled]="!puedeSubir()"
+  >
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </button>
+    <!-- teléfono -->
+    <div class="phone-wrapper">
+
+      @for (elem of listado(); track elem.id) {
+        <div class="phone-container anim-enter">
+          <span class="phone-notch"></span>
+
+          <!-- publicación -->
+          <div class="post">
+
+            <!-- imagen / carrusel -->
+            <div
+              class="post-image carousel"
+              (touchstart)="onTouchStart($event)"
+              (touchend)="onTouchEnd($event)"
+            >
+              <div
+                class="slides"
+                [style.transform]="'translateX(-' + fotoActiva * 100 + '%)'"
+              >
+                @for (foto of elem.img ?? []; track $index) {
+                  <div class="slide">
+                    <img [src]="foto" alt="https://rblcdlfdorvxduvapxlb.supabase.co/storage/v1/object/public/edificio/placeholder.png">
+                  </div>
+                }
+              </div>
+
+              <!-- navegación lateral -->
+              <button
+                class="nav-side left"
+                (click)="irAnterior()"
+                [disabled]="fotoActiva === 0"
+              >
+                <ion-icon name="chevron-back-outline"></ion-icon>
+              </button>
+
+              <button
+                class="nav-side right"
+                (click)="irSiguiente(elem.img?.length ?? 0)"
+                [disabled]="fotoActiva === (elem.img?.length ?? 1) - 1"
+              >
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+              </button>
+            </div>
+
+            <!-- indicadores -->
+            @if ((elem.img?.length ?? 0) > 1) {
+              <div class="dots">
+                @for (_ of elem.img; track $index) {
+                  <span
+                    class="dot"
+                    [class.active]="fotoActiva === $index"
+                    (click)="irA($index)"
+                  ></span>
+                }
+              </div>
+            }
+
+            <!-- info + botón -->
+            <div class="post-info">
+              <div class="text-info">
+                <p class="username">{{ elem.nombre | titlecase }}</p>
+                <p class="fecha">{{ elem.subida | formatoFecha }}</p>
+              </div>
+              @if(this.usuarioActual?.perfil !== 'anonimo'){
+                <button
+                  class="vote-btn"
+                  [disabled]="yaVotado()!"
+                  (click)="votar()"
+                >
+                  Votar
+                </button>
+              }
+            </div>
+
+          </div>
+
+          <!-- botones laterales del teléfono -->
+          <span class="phone-button phone-button-top"></span>
+          <span class="phone-button phone-button-bottom"></span>
+        </div>
+      }
+
+    </div>
+
+  <!-- botón abajo -->
+  <button
+    class="nav-btn bottom"
+    (click)="siguientePagina()"
+    [disabled]="!puedeBajar()"
+  >
+    <ion-icon name="arrow-down-outline"></ion-icon>
+  </button>
+
+  </div>
+</ion-content>

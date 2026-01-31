@@ -1,0 +1,34 @@
+<ion-content class="modal-desafio">
+  <div class="panel-desafio">
+    <img [src]="pregunta.imagen" alt="Imagen del desafío" />
+
+    <ion-card-content>
+      <p class="pregunta">{{ pregunta.texto }}</p>
+
+      <div class="botones-respuesta">
+        <ion-button
+        class="exito"
+          [disabled]="mostrarFeedback"
+          (click)="responder(true)"
+        >
+          Verdadero
+        </ion-button>
+
+        <ion-button
+        class="temor"
+          [disabled]="mostrarFeedback"
+          (click)="responder(false)"
+        >
+          Falso
+        </ion-button>
+      </div>
+
+      <!-- Feedback animado -->
+      @if(mostrarFeedback){
+        <div class="feedback" [class.correcto]="respuestaCorrecta" [class.incorrecto]="!respuestaCorrecta">
+          {{ mensajeFeedback }}
+        </div>
+      }
+    </ion-card-content>
+  </div>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header class="custom-header">
+  <ion-toolbar class="toolbar-gradient">
+
+    <div class="header-row">
+
+      <!-- Izquierda: volver -->
+      <div class="header-left">
+        <button
+          class="back-btn"
+          type="button"
+          (click)="volver()"
+          [disabled]="estoyEnInicio"
+          aria-label="Volver"
+        >
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+      </div>
+
+      <div class="header-right">
+        <div class="header-btn-wrapper">
+          <app-marlujo-boton
+            texto="Cerrar sesión"
+            color="rojo"
+            tipo="button"
+            (click)="logout()"
+          />
+        </div>
+      </div>
+
+    </div>
+
+  </ion-toolbar>
+</ion-header>

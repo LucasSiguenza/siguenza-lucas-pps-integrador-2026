@@ -1,0 +1,295 @@
+/* =============================== */
+/* PANTALLA JUEGO                   */
+/* =============================== */
+ion-content.pantalla-juego {
+  --background:
+    linear-gradient(
+      180deg,
+      rgba(242, 225, 174, 0.15) 0%,
+      rgba(242, 225, 174, 0.15) 12%,
+      rgba(242, 225, 174, 0.15) 22%,
+      rgba(242, 225, 174, 0.15) 38%,
+      rgba(242, 219, 148, 0.35) 60%,
+      rgba(166, 127, 56, 0.55) 100%
+    ),
+    radial-gradient(
+      circle at top,
+      rgba(255, 200, 87, 0.35),
+      rgba(34, 49, 51, 0.9)
+    );
+
+  padding: 1rem 0.8rem 1.2rem;
+}
+/* ===================== */
+/* TIMER                 */
+/* ===================== */
+.timer {
+  margin: 1vh 0;
+  text-align: center;
+
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #F2E1AE;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+/* ===================== */
+/* GRID BASE              */
+/* ===================== */
+.grid-cartas {
+  height: 20vh; /* header + timer */
+  flex: 1;
+
+  display: grid;
+  box-sizing: border-box;
+
+  gap: 0.6rem;
+  padding: 0.8rem;
+}
+
+/* ===================== */
+/* GRID RESPONSIVE REAL   */
+/* ===================== */
+
+/* 6 cartas → grandes */
+.grid-cartas.facil {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+
+/* 10 cartas → medianas */
+.grid-cartas.medio {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+
+/* 16 cartas → chicas */
+.grid-cartas.dificil {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+
+/* ===================== */
+/* CARTAS                 */
+/* ===================== */
+.carta {
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+}
+/* ===================== */
+/* ASPECT RATIO          */
+/* ===================== */
+
+/* 6 cartas → más cuadradas y grandes */
+.grid-cartas.facil .carta {
+  aspect-ratio: 1 / 2.3;
+}
+
+/* 10 cartas → un poco más vertical */
+.grid-cartas.medio .carta {
+  aspect-ratio: 2.2 / 1;
+}
+
+/* 16 cartas → compactas */
+.grid-cartas.dificil .carta {
+  aspect-ratio: 1 / 1.6;
+}
+/* ===================== */
+/* FLIP                   */
+/* ===================== */
+.carta-inner {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+  transform-style: preserve-3d;
+
+  transition: transform 0.4s ease;
+}
+
+.carta.descubierta .carta-inner {
+  transform: rotateY(180deg);
+}
+
+//* ===================== */
+/* FRONT / BACK           */
+/* ===================== */
+.carta-front,
+.carta-back {
+  position: absolute;
+  inset: 0;
+  
+  
+  border-radius: 0.9rem;
+  backface-visibility: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===================== */
+/* DORSO (LOGO)           */
+/* ===================== */
+.carta-front {
+  background: url("assets/icon/Marlujo juego de la memoria.png") no-repeat center / contain,
+    radial-gradient(circle at top, #F2DB94, #A67F38);
+
+  box-shadow:
+    0 0 10px rgba(242, 219, 148, 0.5),
+    inset 0 0 8px rgba(255, 255, 255, 0.15);
+}
+
+/* ===================== */
+/* REVERSO (IMAGEN)       */
+/* ===================== */
+.carta-back {
+  transform: rotateY(180deg);
+
+  background-repeat: no-repeat;
+  background-size: contain;          /* 🔑 clave */
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-color: #ffce93;
+
+  box-shadow:
+    0 0 12px rgba(242, 225, 174, 0.6);
+}
+
+/* ===================== */
+/* GLOW ACIERTO           */
+/* ===================== */
+.carta.descubierta {
+  animation: glow-win 0.45s ease;
+}
+
+@keyframes glow-win {
+  from {
+    box-shadow: 0 0 0 rgba(242, 219, 148, 0);
+  }
+  to {
+    box-shadow: 0 0 14px rgba(242, 219, 148, 0.75);
+  }
+}
+
+/* ===================== */
+/* BOTÓN REPLAY FLOAT    */
+/* ===================== */
+
+.btn-replay-floating {
+  position: fixed;
+  top: 4.25rem;
+  right: 1.2rem;
+  z-index: 999;
+
+  width: 4.2rem;
+  height: 4.2rem;
+
+  /* 🔴 CLAVE */
+  --border-radius: 50%;
+  --background: radial-gradient(
+    circle at 30% 30%,
+    #ff6b6b,
+    #b11212 70%
+  );
+
+  --color: #f2f6f7;
+
+  --box-shadow: none;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+
+  --box-shadow:
+    0 0 0.6rem rgba(255, 59, 59, 0.8),
+    0 0 1.4rem rgba(255, 59, 59, 0.6),
+    0 0 2.4rem rgba(177, 18, 18, 0.5);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-replay-floating:active {
+  transform: scale(0.92);
+
+  --background: radial-gradient(
+    circle at 30% 30%,
+    #ff8a8a,
+    #d01818 70%
+  );
+
+  box-shadow:
+    0 0 0.4rem rgba(255, 59, 59, 0.9),
+    0 0 1rem rgba(177, 18, 18, 0.8);
+}
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.6) translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+/* ===================== */
+/* BOTÓN REGISTRAR SCORE */
+/* ===================== */
+
+.btn-score-floating {
+  position: fixed;
+  bottom: 2.6rem;
+  right: 50%;
+  transform: translateX(50%);
+
+  z-index: 999;
+
+  min-width: 15rem;
+  height: 3.6rem;
+
+  padding: 0 1.4rem;
+
+  --border-radius: 2rem;
+  --background: linear-gradient(
+    135deg,
+    #6bfffd,
+    #1294b1
+  );
+
+  --color: #f2f6f7;
+  --box-shadow: none;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  text-align: center;
+  line-height: 1.1;
+
+  --box-shadow:
+    0 0 0.6rem rgba(59, 85, 255, 0.9),
+    0 0 1.6rem rgba(105, 59, 255, 0.6),
+    0 0 2.8rem rgba(90, 18, 177, 0.5);
+
+  --transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn-score-floating:active {
+  --transform: translateX(50%) scale(0.95);
+
+  --background: linear-gradient(
+    135deg,
+    #8ac8ff,
+    #1e18d0
+  );
+
+  --box-shadow:
+    0 0 0.4rem rgb(160, 59, 255),
+    0 0 1rem rgba(55, 18, 177, 0.8);
+}

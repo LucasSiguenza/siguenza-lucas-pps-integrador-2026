@@ -1,0 +1,55 @@
+<app-marlujo-header></app-marlujo-header>
+<ion-content class="pantalla-juego">
+<br>
+  <div class="tabla-wrapper">
+    <h2 class="titulo"><strong>Clasificaciones</strong></h2>
+
+    <table class="tabla-neon">
+      <thead>
+        <tr>
+          <th>🏆</th>
+          <th>Nombre</th>
+          <th>Mejor tiempo</th>
+          <th>Dificultad</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (p of topCinco(); track $index) {
+          <tr>
+            <td class="ranking">{{ $index + 1 }}</td>
+            <td class="jugador">{{ p.jugador }}</td>
+            <td class="tiempo">{{ p.tiempo }}s</td>
+            <td class="dificultad">{{ p.dificultad }}</td>
+            <td class="fecha">{{ p.obtencion ?? '-' | formatoFecha}}</td>
+          </tr>
+        }
+
+        @if (topCinco().length === 0) {
+          <tr>
+            <td colspan="5" class="sin-datos">
+              No hay puntuaciones para esta dificultad
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FABs -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-facil" (click)="cambiarDificultad('facil')">
+      F
+    </ion-fab-button>
+
+    <ion-fab-button class="fab-media" (click)="cambiarDificultad('media')">
+      M
+    </ion-fab-button>
+
+    <ion-fab-button class="fab-dificil" (click)="cambiarDificultad('dificil')">
+      D
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

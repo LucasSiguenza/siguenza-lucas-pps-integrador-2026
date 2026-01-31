@@ -1,0 +1,113 @@
+/* Texto superior e inferior */
+.titulo,
+.subtitulo {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow:
+    0 1px 0 #000,
+    0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.titulo {
+  font-size: 2.3rem;
+}
+
+.subtitulo {
+  font-size: 2.1rem;
+}
+
+/* Escena 3D (perspectiva) */
+.scene {
+  perspective: 900px;
+}
+
+/* Contenedor circular */
+.circle {
+  --size: 40vh;
+
+  width: var(--size);
+  height: var(--size);
+
+  margin: 0 auto;
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  transform-style: preserve-3d;
+
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.197),
+    inset 0 0 18px rgba(255, 255, 255, 0.08);
+}
+
+.circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.15);
+  backface-visibility: hidden;
+}
+
+/* Animación wipe derecha → izquierda */
+.wipe-fade {
+  animation: wipe-fade 1.5s ease-in-out both;
+}
+
+@keyframes wipe-fade {
+  /* Visible al inicio */
+  0% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+
+  35% {
+    clip-path: inset(50% 0 0% 0);
+    opacity: 0;
+  }
+
+  50% {
+    clip-path: inset(50% 0 0 0);
+    opacity: 0;
+  }
+  
+  70% {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+  }
+
+  80% {
+    clip-path: inset(0 0 0 100%);
+    opacity: 1;
+  }
+
+  /* Estado final fijo */
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+
+/* Texto inferior */
+.tracking-in-expand {
+  animation: tracking-in-expand 1.5s
+    cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -1.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}

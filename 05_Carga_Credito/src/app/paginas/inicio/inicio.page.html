@@ -1,0 +1,55 @@
+<app-marlujo-header></app-marlujo-header>
+
+<ion-content class="ion-padding neon-bg">
+
+  <!-- Info del usuario -->
+  <ion-grid class="info-usuario">
+    <ion-row>
+      <ion-col size="12" size-md="4">
+        <div class="info-card">
+          <span class="label">Saldo</span>
+          @if(creditoSvc.cargandoCredito()){
+            <ion-spinner name="crescent"></ion-spinner>
+          } 
+          @else {
+            <span class="value">$ {{ saldoMostrado() }}</span>
+          }
+        </div>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <div class="info-card">
+          <span class="label">Nombre</span>
+          <span class="value">{{ usrSvc.usrActual()?.nombre }}</span>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" size-md="4">
+        <div class="info-card">
+          <span class="label">Rol</span>
+          <span class="value">{{ usrSvc.usrActual()?.perfil }}</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+ <!-- Botones de acción -->
+<div class="scan-actions">
+  <ion-button
+    class="scan-neon"
+    shape="round"
+    (click)="escanearQr()"
+  >
+    <ion-icon name="qr-code-outline"></ion-icon>
+  </ion-button>
+
+  <ion-button
+    class="delete-neon"
+    shape="round"
+    (click)="creditoSvc.limpiarCargas()"
+  >
+    <ion-icon name="trash-outline"></ion-icon>
+  </ion-button>
+</div>
+
+</ion-content>

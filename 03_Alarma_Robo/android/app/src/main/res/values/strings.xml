@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">03_Alarma_Robo</string>
+    <string name="title_activity_main">03_Alarma_Robo</string>
+    <string name="package_name">marlujo.alarma</string>
+    <string name="custom_url_scheme">marlujo.alarma</string>
+</resources>

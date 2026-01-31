@@ -1,0 +1,59 @@
+<app-marlujo-header></app-marlujo-header>
+
+<div class="chat-screen" [class.chat-a]="esA()" [class.chat-b]="esB()">
+
+  <!-- HEADER DEL CHAT -->
+  <div class="consulta-info">
+    <h3>Sala PPS-4{{ esA() ? 'A' : 'B' }}</h3>
+    <p>Chat general</p>
+  </div>
+
+  <!-- MENSAJES -->
+  <div class="autoscrollable-wrapper">
+
+    @for (msj of mensajes(); track msj.id) {
+
+      <div
+        class="message-row"
+        [class.message-right]="esMensajePropio(msj)"
+        [class.message-left]="!esMensajePropio(msj)"
+      >
+        <div class="message-bubble">
+
+          <div class="message-header">
+            <span class="message-author">
+              {{ esMensajePropio(msj) ? 'Tú' : msj.nombre }}
+            </span>
+            <span class="message-time">
+              {{ obtenerHora(msj) }}
+            </span>
+          </div>
+
+          <div class="message-content">
+            {{ msj.mensaje }}
+          </div>
+
+        </div>
+      </div>
+
+    }
+
+  </div>
+
+  <!-- INPUT -->
+  <div id="chat-input-zone">
+    <textarea
+      class="textarea"
+      rows="1"
+      placeholder="Escribí un mensaje…"
+      [value]="mensajeInput()"
+      (input)="mensajeInput.set($any($event.target).value)"
+      (keydown.enter)="enviar()"
+    ></textarea>
+
+    <button class="btn-enviar" type="button" (click)="enviar()">
+      ➤
+    </button>
+  </div>
+
+</div>
