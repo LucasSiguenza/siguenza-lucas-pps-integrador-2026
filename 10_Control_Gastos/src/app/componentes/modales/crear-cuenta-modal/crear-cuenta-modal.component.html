@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Configuración inicial</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding celestial-bg">
+
+  <ion-text>
+    <h2>Bienvenido 👋</h2>
+    <p>
+      Antes de comenzar, necesitamos algunos datos básicos
+      para configurar tu cuenta.
+    </p>
+  </ion-text>
+
+  <ion-item>
+    <ion-label position="stacked">Ingreso mensual</ion-label>
+    <ion-input
+      type="number"
+      inputmode="decimal"
+      placeholder="Ej: 250000"
+      [(ngModel)]="ingresoMensual"
+      required
+    ></ion-input>
+  </ion-item>
+
+  <ion-item class="ion-margin-top">
+    <ion-label position="stacked">Porcentaje de ahorro deseado (%)</ion-label>
+    <ion-input
+      type="number"
+      inputmode="decimal"
+      placeholder="Ej: 20"
+      [(ngModel)]="porcentajeAhorro"
+      required
+    ></ion-input>
+  </ion-item>
+
+  <ion-note class="ion-margin-top" color="medium">
+    Esto define cuánto del ingreso mensual querés preservar como ahorro.
+  </ion-note>
+
+  <ion-button
+    expand="block"
+    class="ion-margin-top"
+    [disabled]="!ingresoMensual || !porcentajeAhorro"
+    (click)="confirmar()"
+  >
+    Crear cuenta
+  </ion-button>
+
+</ion-content>

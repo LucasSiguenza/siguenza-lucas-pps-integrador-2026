@@ -1,0 +1,143 @@
+/* ===============================
+   LAYOUT GENERAL
+   =============================== */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  padding: 2vh 0;
+}
+
+/* ===============================
+   SLIDE (MISMA LÓGICA QUE CARRUSEL)
+   =============================== */
+
+.graph-slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.graph-wrapper {
+  width: 90vw;               /* 5% + 60% + 30% + 5% */
+  height: 38vh;
+
+  display: flex;
+  align-items: center;
+
+  background-color: #223133; /* A-5 */
+  border-radius: 1rem;
+
+  overflow: hidden;
+}
+
+/* ===============================
+   GRÁFICO
+   =============================== */
+
+.graph-area {
+  width: 60%;
+  height: 100%;
+
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #2B3233; /* A-6 */
+}
+
+.graph-area canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ===============================
+   LISTADO DE NOMBRES
+   =============================== */
+
+.names-area {
+  width: 30%;
+  height: 100%;
+
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  overflow-y: auto;
+}
+
+/* FEOS */
+.names-area.feos p {
+  color: #2D7A86; /* A-2 */
+  font-size: 1rem;
+}
+
+/* LINDOS */
+.names-area.lindos p {
+  color: #00BEDC; /* A-3 */
+  font-size: 1rem;
+}
+
+.names-area p {
+  margin: 0;
+  line-height: 1.4;
+}
+/* ===============================
+   LAYOUT GENERAL
+   =============================== */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  padding: 0;
+}
+
+/* ===============================
+   CONTENEDOR GRÁFICO
+   =============================== */
+
+.graph-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0 5%;
+  height: 40vh;
+  gap: 5%;
+}
+
+/* ===============================
+   CANVAS
+   =============================== */
+
+canvas {
+  width: 60%;
+  height: 100%;
+}
+
+/* ===============================
+   LISTA DE NOMBRES
+   =============================== */
+
+.names-list {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.5rem;
+  gap: 1.2rem;
+  overflow-y: auto;
+}
+
+.names-list p {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  text-shadow: 0 0 0.4rem rgba(0, 190, 220, 0.25);
+}

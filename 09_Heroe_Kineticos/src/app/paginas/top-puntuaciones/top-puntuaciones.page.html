@@ -1,0 +1,49 @@
+<app-marlujo-header></app-marlujo-header>
+<ion-content class="pantalla-juego">
+
+  <div class="tabla-wrapper">
+
+    <h2 class="titulo">🏆 Top 5 Supervivientes</h2>
+
+    @if (topCinco().length > 0) {
+
+      <table class="tabla-neon">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Jugador</th>
+            <th>Tiempo</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (pt of topCinco(); track pt.id; let i = $index) {
+            <tr>
+              <td class="ranking">{{ i + 1 }}</td>
+              <td>{{ pt.usuario }}</td>
+              <td class="tiempo">{{ pt.valor | segundos}} s</td>
+              <td>{{ pt.obtencion | formatoFecha }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+
+    } @else {
+
+      <div class="sin-datos">
+        No hay puntajes registrados aún.
+      </div>
+
+    }
+
+  </div>
+
+  <!-- FAB volver -->
+  <ion-fab vertical="bottom" horizontal="center">
+    <ion-fab-button (click)="utilSvc.redirigir('inicio')">
+      ⬅️
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

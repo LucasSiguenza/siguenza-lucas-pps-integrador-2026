@@ -91,17 +91,23 @@ export class MisPublicacionesPage implements OnInit {
     if (delta < -UMBRAL) this.irSiguiente();
   }
 
-  irAnterior() {
-    this.fotoActiva = Math.max(this.fotoActiva - 1, 0);
-  }
+  private get totalFotos(): number {
+  return this.listadoFiltrado[0]?.img?.length ?? 1;
+}
+irAnterior() {
+  this.fotoActiva = Math.max(this.fotoActiva - 1, 0);
+}
 
-  irSiguiente(total: number = 1) {
-    this.fotoActiva = Math.min(this.fotoActiva + 1, total - 1);
-  }
+irSiguiente() {
+  this.fotoActiva = Math.min(
+    this.fotoActiva + 1,
+    this.totalFotos - 1
+  );
+}
 
-  irA(index: number) {
-    this.fotoActiva = index;
-  }
+irA(index: number) {
+  this.fotoActiva = Math.min(index, this.totalFotos - 1);
+}
 
   protected get puedeSubir(): boolean {
   return this.paginaActual > 0;
@@ -136,6 +142,8 @@ export class MisPublicacionesPage implements OnInit {
       this.irSiguiente();
     }
   }
+
+  
     /* ===================== */
     /* ▶️ ACTIVAR DETECTOR   */
     /* ===================== */
@@ -144,6 +152,7 @@ export class MisPublicacionesPage implements OnInit {
   
         const ahora = Date.now();
         if (ahora - this.ultimoEvento < this.delayMs) return;
+
         this.ultimoEvento = ahora;
         this.evaluarOrientacion(acc.x, acc.y, acc.z);
       });

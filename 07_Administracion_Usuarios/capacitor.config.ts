@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'marlujo.admin.usuarios',
   appName: '07_Administracion_Usuarios',
   webDir: 'www'
 };

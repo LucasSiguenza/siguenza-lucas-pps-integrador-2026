@@ -45,6 +45,7 @@ constructor(){
 
   async logout() {
     this.elemSvc.destruirCanal();
+    await this.utilSvc.stopMotionListener();
     await this.sbSvc.cerrarSesion();
     this.userSvc.usrActual.set(null)
     await this.utilSvc.redirigir('prelogin')

@@ -1,0 +1,217 @@
+
+/* ============================= */
+/* FONDO NEÓN CENTRAL NARANJA    */
+/* ============================= */
+
+ion-content.neon-bg {
+  --background: transparent;
+  background:
+    radial-gradient(
+      circle at 50% 44%,
+      rgba(249, 237, 3, 0.38) 0%,    /* #F9ED03 */
+      rgba(252, 159, 15, 0.30) 18%,  /* #FC9F0F */
+      rgba(253, 112, 23, 0.24) 32%,  /* #FD7017 */
+      rgba(254, 76, 28, 0.40) 52%,   /* #FE4C1C */
+      rgba(168, 43, 12, 0.542) 70%,   /* sombra naranja profunda */
+      #4a1206 100%                  /* fondo final oscuro cálido */
+    );
+}
+/* ===================== */
+/* CONTENEDOR GENERAL    */
+/* ===================== */
+
+:host {
+  display: block;
+  padding: 1.5vmin;
+}
+
+/* ===================== */
+/* GRID DE CARDS         */
+/* ===================== */
+
+ion-card {
+  border-radius: 2vh;
+  border: 0.6vh solid #D4A32F;
+  color: #ffffff;
+  background: #1e1e1e;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-bottom: 2.5vmin;
+
+  &:hover {
+    transform: translateY(-0.4vh);
+    box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* ===================== */
+/* HEADER                */
+/* ===================== */
+
+ion-card-title {
+  text-align: center;
+  font-size: 4.2vmin;
+  font-weight: 600;
+}
+
+/* ===================== */
+/* FOTO USUARIO          */
+/* ===================== */
+
+.foto-usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;  /* Eliminar márgenes */
+  padding: 0; /* Eliminar cualquier padding */
+  border-radius: 50%;  /* Mantener la forma circular */
+  overflow: hidden;  /* Asegurarnos de que la imagen no se desborde */
+  background-color: #7a0f0f;
+  box-shadow: 0 0.6vmin 1.6vmin rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  /* Aseguramos que la imagen se ajuste a la altura de 20vh */
+  height: 20vh;
+  width: 20vh;  /* Esto asegura que sea perfectamente circular */
+}
+
+.foto-usuario img {
+  object-fit: cover;  /* Asegura que la imagen se recorte bien */
+  width: 100%;
+  height: 100%;  /* Ocupa toda la altura y el ancho del contenedor */
+  border-radius: 50%;  /* Sigue siendo circular */
+}
+
+/* ===================== */
+/* TEXTO / INFO          */
+/* ===================== */
+
+ion-text {
+  display: block;
+  text-align: center;
+  font-size: 3.6vmin;
+  margin-bottom: 2vmin;
+
+  p {
+    margin: 0.8vmin 0;
+  }
+
+  .perfil {
+    margin-top: 1.2vmin;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+}
+
+/* ===================== */
+/* ACCIONES ADMIN        */
+/* ===================== */
+
+.acciones-admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5vmin;
+  margin-top: 2.5vmin;
+  flex-wrap: wrap;
+}
+
+/* ===================== */
+/* BOTONES               */
+/* ===================== */
+
+ion-button {
+  --background: #2f2f2f;
+  --color: #ffffff;
+  font-size: 3.6vmin;
+  min-height: 7.5vh;
+  border-radius: 1.4vh;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0.8vh 1.2vh rgba(0, 0, 0, 0.45);
+  }
+}
+
+ion-button ion-icon {
+  font-size: 3.2vh;
+  margin-right: 1vw;
+}
+
+/* ===================== */
+/* RESPONSIVE EXTRA      */
+/* ===================== */
+
+@media (min-width: 768px) {
+  ion-card {
+    max-width: 55vmin;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.fab-agregar {
+  bottom: 2rem;
+  right: 2rem;
+  position: fixed;
+  z-index: 1000;
+
+  ion-fab-button {
+    --background: #169400;
+    color: #000;
+    --box-shadow:
+      0 0 10px #14ffb5,
+      0 0 20px #a1ff142c,
+      0 0 30px #39ff14;
+  }
+}
+
+.paginacion {
+  display: flex;
+  justify-content: center; /* eje X */
+  align-items: center;     /* eje Y */
+  gap: 2vmin;
+}
+
+.btn-paginacion {
+  --background: transparent;
+  --color: #f9ed03;
+  --border-color: #f9ed03;
+  --border-width: 2px;
+  --border-style: solid;
+  --border-radius: 3vmin;
+
+  --box-shadow: 0 0 10px rgba(249, 237, 3, 0.35);
+
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* hover */
+.btn-paginacion:hover {
+  --background: rgba(249, 237, 3, 0.15);
+  --box-shadow:
+    0 0 12px rgba(249, 237, 3, 0.6),
+    0 0 22px rgba(252, 159, 15, 0.4);
+}
+
+/* disabled */
+.btn-paginacion.button-disabled {
+  opacity: 0.35;
+  filter: grayscale(0.6);
+}
+
+/* texto central */
+.pagina-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(252, 159, 15, 0.6);
+}

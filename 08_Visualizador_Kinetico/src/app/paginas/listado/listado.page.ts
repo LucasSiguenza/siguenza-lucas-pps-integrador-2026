@@ -84,16 +84,15 @@ export class ListadoPage {
     });
   }
 
-  async ngOnInit() {
-    await this.activarDetector();
-    this.usuarioActual = this.usrSVC.usrActual()!;
+async ngOnInit() {
+  await this.activarDetector();
+  this.usuarioActual = this.usrSVC.usrActual()!;
 
-    const carga = await this.utilSvc.loading();
-    await carga.present();
+  const carga = await this.utilSvc.loading();
+  await carga.present();
 
-    // el servicio ya carga y mantiene el listado (realtime)
-    await carga.dismiss();
-  }
+  await carga.dismiss();
+}
 
   //! ======================= Paginado =======================
 
@@ -116,13 +115,15 @@ export class ListadoPage {
   private readonly delayMs = 1200; 
   private motionSub: Subscription | null = null;
   
-  evaluarOrientacion(x: number, y: number, z: number) {
-    if (x > 6) {
-      this.irAnterior();
-    } else if (x < -6) {
-      this.irSiguiente();
-    }
+evaluarOrientacion(x: number, y: number, z: number) {
+  if (x > 3) {
+    this.irAnterior();
   }
+  if (x < -3) {
+    this.irSiguiente();
+  }
+}
+
   /* ===================== */
   /* ▶️ ACTIVAR DETECTOR   */
   /* ===================== */
@@ -139,11 +140,12 @@ export class ListadoPage {
    /* ===================== */
   /* 🔄 LIMPIEZA AL DESTRUIR COMPONENTE */
   /* ===================== */
-  async ngOnDestroy(): Promise<void> {
-    this.motionSub?.unsubscribe();
-    await this.utilSvc.stopMotionListener();
+async ngOnDestroy(): Promise<void> {
+  if (this.motionSub) {
+    this.motionSub.unsubscribe();
   }
-
+  await this.utilSvc.stopMotionListener();
+}
 
 
   protected puedeSubir = computed(() => {
@@ -167,18 +169,23 @@ export class ListadoPage {
     if (delta > UMBRAL) this.irAnterior();
     if (delta < -UMBRAL) this.irSiguiente();
   }
+get totalFotos(): number {
+  return this.listado()[0]?.img?.length ?? 1;
+}
+irAnterior() {
+  this.fotoActiva = Math.max(this.fotoActiva - 1, 0);
+}
 
-  irAnterior() {
-    this.fotoActiva = Math.max(this.fotoActiva - 1, 0);
-  }
+irSiguiente() {
+  this.fotoActiva = Math.min(
+    this.fotoActiva + 1,
+    this.totalFotos - 1
+  );
+}
 
-  irSiguiente(total: number = 1) {
-    this.fotoActiva = Math.min(this.fotoActiva + 1, total - 1);
-  }
-
-  irA(index: number) {
-    this.fotoActiva = index;
-  }
+irA(index: number) {
+  this.fotoActiva = Math.min(index, this.totalFotos - 1);
+}
 
   yaVotado = computed(() => {
     const uid = this.usuarioActual?.uid;

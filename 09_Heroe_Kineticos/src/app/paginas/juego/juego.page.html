@@ -1,0 +1,37 @@
+<ion-content fullscreen>
+
+  <!-- Zona segura -->
+  <div
+    class="safe-zone"
+    [style.top.px]="safeMargin"
+    [style.left.px]="safeMargin"
+    [style.right.px]="safeMargin"
+    [style.bottom.px]="safeMargin"
+  ></div>
+
+  <!-- 🦸 PERSONAJE -->
+  <div
+    class="hero"
+    [style.width.px]="size"
+    [style.height.px]="size"
+    [style.left.px]="pos.x"
+    [style.top.px]="pos.y"
+  >
+    <img [src]="heroImg" alt="Heroe" />
+  </div>
+
+  <!-- Timer -->
+  <div class="timer">⏱ {{ tiempo.toFixed(1) }}</div>
+
+  <!-- Overlay al morir -->
+  <div class="overlay" *ngIf="muerto">
+    <h2>💥 Perdiste</h2>
+    <p>Tiempo: {{ tiempo.toFixed(2) }}s</p>
+
+    <div class="btn-group">
+      <button class="btn primary" (click)="repetir()">🔁 Reintentar</button>
+      <button class="btn secondary" (click)="volver()">⬅️ Volver</button>
+    </div>
+  </div>
+
+</ion-content>

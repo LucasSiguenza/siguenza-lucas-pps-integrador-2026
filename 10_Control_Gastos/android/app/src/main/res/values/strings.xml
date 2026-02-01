@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">10_Control_Gastos</string>
+    <string name="title_activity_main">10_Control_Gastos</string>
+    <string name="package_name">marlujo.gestion</string>
+    <string name="custom_url_scheme">marlujo.gestion</string>
+</resources>

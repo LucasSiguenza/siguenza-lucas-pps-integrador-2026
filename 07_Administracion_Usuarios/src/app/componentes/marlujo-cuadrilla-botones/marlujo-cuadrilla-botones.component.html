@@ -1,0 +1,35 @@
+<div class="main">
+
+  <div class="grid">
+    <div class="up">
+      @for (card of cards.slice(0, 2); track card) {
+        <button
+          class="card"
+          [ngClass]="[card.position, card.color]"
+          (click)="onClick(card)"
+        >
+          <img [src]="card.iconPath" alt="icono" />
+        </button>
+      }
+    </div>
+
+    <div class="down">
+      @for (card of cards.slice(2, 4); track card) {
+        <button
+          class="card"
+          [ngClass]="[card.position, card.color]"
+          (click)="onClick(card)"
+        >
+          <img [src]="card.iconPath" alt="icono" />
+        </button>
+      }
+    </div>
+  </div>
+
+  @if (centro) {
+    <button class="card centro" (click)="onClick(centro)">
+      <img [src]="centro.iconPath" alt="acción principal" />
+    </button>
+  }
+
+</div>

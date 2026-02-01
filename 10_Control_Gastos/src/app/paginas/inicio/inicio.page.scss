@@ -1,0 +1,116 @@
+/* ============================= */
+/* FONDO NEÓN CENTRAL NARANJA + GLOW */
+/* ============================= */
+
+ion-content.neon-bg {
+  --background: transparent;
+  background: radial-gradient(
+    circle at 50% 44%,
+    rgba(249, 237, 3, 0.38) 0%,     /* amarillo claro */
+    rgba(252, 159, 15, 0.30) 18%,   /* naranja */
+    rgba(253, 112, 23, 0.24) 32%,   /* naranja intenso */
+    rgba(254, 76, 28, 0.40) 52%,    /* naranja rojizo */
+    rgba(168, 43, 12, 0.542) 70%,   /* sombra profunda */
+    #4a1206 100%                     /* fondo oscuro cálido */
+  );
+  color: #fff; /* base para el texto */
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Texto y glow general */
+.neon-bg h2,
+.neon-bg p,
+.neon-bg ion-col,
+.neon-bg ion-text {
+  text-shadow: 
+    0 0 5px #fff8a0,
+    0 0 10px #ffc84d,
+    0 0 20px #ffb347,
+    0 0 40px #ff9f1c;
+}
+.neon-bg ion-text {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+}
+.neon-bg ion-text {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.neon-bg ion-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ffe066; /* amarillo neón sobre naranja */
+}
+
+.neon-bg ion-text p {
+  font-size: 1.2rem;
+  color: #fff3e0; /* blanco cálido */
+}
+.scroll-container {
+  height: 80vh;
+  width: 95vw;
+  overflow-y: auto;
+  margin: auto;
+  padding-right: 5px; /* espacio para scroll */
+}
+
+/* Encabezado */
+ion-row.header {
+  background-color: rgba(252, 159, 15, 0.5); /* naranja semi-transparente */
+  font-weight: bold;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* Filas */
+ion-row {
+  background-color: rgba(255, 255, 255, 0.05); /* contraste suave */
+  margin-bottom: 6px;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+ion-row:hover {
+  background-color: rgba(252, 159, 15, 0.3); /* glow hover naranja */
+  transform: scale(1.01);
+}
+
+ion-col {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.95rem;
+}
+ion-button {
+  background: #ffc84d;
+  color: #4a1206;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 0 5px #ffc84d, 0 0 15px #ffb347, 0 0 30px #ff9f1c;
+  transition: all 0.2s ease-in-out;
+}
+
+ion-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffc84d, 0 0 25px #ff9f1c, 0 0 50px #ff7f2a;
+}
+
+.fab-green {
+  --background: #4caf50;      /* verde principal */
+  --box-shadow: 0 0 10px #4caf50, 0 0 20px #66bb6a, 0 0 30px #a5d6a7;
+  --color: #fff;               /* ícono blanco */
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.fab-green:hover {
+  --box-shadow: 0 0 15px #4caf50, 0 0 30px #66bb6a, 0 0 50px #a5d6a7;
+  transform: scale(1.1);
+}

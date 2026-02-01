@@ -1,0 +1,178 @@
+<app-marlujo-header>
+</app-marlujo-header>
+<ion-content>
+<ion-fab vertical="top" horizontal="start" class="fab-cerrar">
+  <ion-fab-button (click)="cancelacion()" color="danger">
+    <ion-icon name="close-circle-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+  <form [formGroup]="form">
+    <br><br><br><br><br>
+  <!-- ===================== -->
+  <!-- 🧭 PASO 1 - Datos básicos -->
+  <!-- ===================== -->
+  @if (currentStep() === 1) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Datos personales</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-button color="warning" expand="block" (click)="escanearDNI()">
+          Escanear DNI
+        </ion-button>
+        <br>
+        <app-marlujo-input 
+          control="nombre",
+          [form]="form"
+          tipo = "text"
+          mensajeAdicional="Debe poseer al menos 3 caracteres"
+          placeholder="Nombre"
+        ></app-marlujo-input>
+
+        <app-marlujo-input
+          control="apellido"
+          tipo = "text"
+          mensajeAdicional="Debe poseer al menos 3 caracteres"
+          [form]="form",
+          placeholder="Apellido"
+        ></app-marlujo-input>
+
+        <ion-button color="warning" expand="block" (click)="nextStep()">
+          Siguiente
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  }
+
+  <!-- ===================== -->
+  <!-- 🪪 PASO 2 - DNI -->
+  <!-- ===================== -->
+  @if (currentStep() === 2) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Documento</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <app-marlujo-input
+        control="dni"
+        tipo="number"
+        [minLength]="7"
+        [maxLength]="8"
+        [form]="form"
+        placeholder="DNI"
+      ></app-marlujo-input>
+
+        <ion-item class="ion-text-center" lines="none">
+          <ion-label>Género</ion-label>
+        </ion-item>
+          <ion-segment
+          (ionChange)="
+            $event.detail.value && seleccionarPerfil($event.detail.value)
+          ">          
+        
+          <ion-segment-button value="M">
+            <ion-label>M</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="F">
+            <ion-label>F</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="X">
+            <ion-label>Otro</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+
+        <ion-button color="warning" expand="block" fill="outline" (click)="prevStep()">
+          Volver
+        </ion-button>
+
+        <ion-button color="warning" expand="block" (click)="nextStep()">
+          Siguiente
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  }
+
+  <!-- ===================== -->
+  <!-- 🔐 PASO 3 - Credenciales -->
+  <!-- ===================== -->
+  @if (currentStep() === 3) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Credenciales</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+       <app-marlujo-input
+          control="correo",
+          tipo="email"
+          mensajeAdicional="Ingrese el formato válido"
+          [form]="form",
+          placeholder="correo"
+        ></app-marlujo-input>
+
+        <app-marlujo-input
+          control="clave",
+          tipo="password"
+          mensajeAdicional="Debe poseer al menos 6 caracteres"
+          [form]="form",
+          placeholder="Ingrese su contraseña"
+        ></app-marlujo-input>
+
+        <app-marlujo-input
+          control="repetirClave",
+          tipo="password"
+          mensajeAdicional="Debe poseer al menos 6 caracteres"
+          [form]="form",
+          placeholder="Repita su contraseña"
+        ></app-marlujo-input>
+
+        <ion-button color="warning" expand="block" fill="outline" (click)="prevStep()">
+          Volver
+        </ion-button>
+
+        <ion-button color="warning" expand="block" (click)="nextStep()">
+          Siguiente
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  }
+
+  <!-- ===================== -->
+  <!-- 📸 PASO 4 - Foto -->
+  <!-- ===================== -->
+  @if (currentStep() === 4) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Foto de perfil</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        @if (fotoPreview) {
+          <ion-img [src]="fotoPreview"></ion-img>
+        }
+
+        <ion-button color="warning" expand="block" (click)="tomarFoto()">
+          Tomar foto
+        </ion-button>
+
+        <ion-button color="warning" expand="block" fill="outline" (click)="prevStep()">
+          Volver
+        </ion-button>
+
+        <ion-button
+          expand="block"
+          color="success"
+          [disabled]="cargando()"
+          (click)="crearUsuario()">
+          Crear usuario
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  }
+
+</form>
+
+
+</ion-content>

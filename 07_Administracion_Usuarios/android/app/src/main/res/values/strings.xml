@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">07_Administracion_Usuarios</string>
+    <string name="title_activity_main">07_Administracion_Usuarios</string>
+    <string name="package_name">marlujo.admin.usuarios</string>
+    <string name="custom_url_scheme">marlujo.admin.usuarios</string>
+</resources>

@@ -1,0 +1,63 @@
+<app-marlujo-header></app-marlujo-header>
+
+<ion-content class="ion-padding neon-bg">
+@if(this.usrSvc.usrActual()?.perfil === 'admin'){
+  <ion-fab vertical="bottom" horizontal="end" class="fab-agregar">
+  <ion-fab-button (click)="agregarUsuario()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+}
+@for (usr of usuariosPaginados(); track usr.uid) {
+  <ion-card class="usuario-card">
+
+    <ion-card-header>
+      <ion-card-title>
+        {{ usr.apellido }}, {{ usr.nombre }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      @if (usr.foto) {
+        <div class="foto-usuario">
+          <img [src]="usr.foto" alt="Foto de {{ usr.nombre }}">
+        </div>
+      }
+
+      <ion-text>
+        <p><strong>DNI:</strong> {{ usr.dni }}</p>
+        <p><strong>Correo:</strong> {{ usr.correo }}</p>
+        <p class="perfil">
+          <strong>Perfil:</strong> {{ usr.perfil }}
+        </p>
+      </ion-text>
+
+    </ion-card-content>
+
+  </ion-card>
+}
+<ion-row class="paginacion ion-justify-content-center ion-padding">
+  <ion-button
+    class="btn-paginacion"
+    fill="outline"
+    size="small"
+    (click)="page.set(page() - 1)"
+    [disabled]="page() === 1">
+    ◀ 
+  </ion-button>
+
+  <ion-text class="pagina-info">
+    {{ page() }} / {{ totalPages() }}
+  </ion-text>
+
+  <ion-button
+    class="btn-paginacion"
+    fill="outline"
+    size="small"
+    (click)="page.set(page() + 1)"
+    [disabled]="page() === totalPages()">
+     ▶
+  </ion-button>
+</ion-row>
+</ion-content>

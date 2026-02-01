@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar Gasto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancelar()">✖</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding celestial-bg">
+
+  <form #gastoForm="ngForm" (ngSubmit)="registrarGasto(gastoForm)">
+
+    <ion-item>
+      <ion-label position="stacked">Nombre del gasto</ion-label>
+      <ion-input
+        type="text"
+        placeholder="Ej: Compra supermercado"
+        [(ngModel)]="nombre"
+        name="nombre"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top">
+      <ion-label position="stacked">Monto</ion-label>
+      <ion-input
+        type="number"
+        inputmode="decimal"
+        placeholder="Ej: 2500"
+        [(ngModel)]="monto"
+        name="monto"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top">
+      <ion-label position="stacked">Tipo de gasto</ion-label>
+      <ion-select [(ngModel)]="tipo" name="tipo" interface="popover">
+        <ion-select-option *ngFor="let t of tiposDisponibles" [value]="t">
+          {{ t }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button
+      expand="block"
+      type="submit"
+      class="ion-margin-top"
+      [disabled]="gastoForm.invalid"
+    >
+      Registrar Gasto
+    </ion-button>
+
+  </form>
+</ion-content>

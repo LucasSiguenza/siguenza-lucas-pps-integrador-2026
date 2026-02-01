@@ -1,0 +1,124 @@
+
+/* --- Button Styling --- */
+.submit-btn {
+  width: var(--btn-width, 100%);
+  padding: var(--btn-padding, 0.8em);
+  margin-top: var(--btn-margin-top, 1rem);
+
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+
+  font-family: inherit;
+  font-size: var(--btn-font-size, 1rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--btn-letter-spacing, 0.2em);
+
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.submit-btn:hover,
+.submit-btn:focus {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  box-shadow: 0 0 25px var(--primary-color);
+  outline: none;
+}
+
+.submit-btn:active {
+  transform: scale(0.97);
+}
+
+/* --- Glitch Effect for Button --- */
+.submit-btn .btn-text {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+
+.submit-btn:hover .btn-text {
+  opacity: 0;
+}
+
+.submit-btn::before,
+.submit-btn::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background-color: var(--primary-color);
+  transition: opacity 0.2s ease;
+}
+
+.submit-btn:hover::before,
+.submit-btn:focus::before {
+  opacity: 1;
+  color: var(--secondary-color);
+  animation: glitch-anim var(--glitch-anim-duration)
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.submit-btn:hover::after,
+.submit-btn:focus::after {
+  opacity: 1;
+  color: var(--bg-color);
+  animation: glitch-anim var(--glitch-anim-duration)
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-group input:focus + .form-label::before,
+  .form-group input:focus + .form-label::after,
+  .submit-btn:hover::before,
+  .submit-btn:focus::before,
+  .submit-btn:hover::after,
+  .submit-btn:focus::after {
+    animation: none;
+    opacity: 0;
+  }
+
+  .submit-btn:hover .btn-text {
+    opacity: 1;
+  }
+}
+
+/* --- Button Color Variants --- */
+
+/* Default (ya existente implícitamente) */
+.submit-btn.azul {
+  --primary-color: #00f2ea;
+  --secondary-color: #a855f7;
+}
+
+/* Variant: Purple */
+.submit-btn.violeta {
+  --primary-color: #a855f7;
+  --secondary-color: #00f2ea;
+}
+
+/* Variant: Red */
+.submit-btn.rojo {
+  --primary-color: #ef4444;
+  --secondary-color: #f97316;
+}
+
+/* Variant: Green */
+.submit-btn.verde {
+  --primary-color: #22c55e;
+  --secondary-color: #86efac;
+}
+/* Variant: Yellow */
+.submit-btn.amarillo {
+  --primary-color: #facc15;   /* amarillo intenso */
+  --secondary-color: #fde047; /* amarillo claro para el glitch */
+}

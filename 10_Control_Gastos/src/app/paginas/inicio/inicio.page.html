@@ -1,0 +1,38 @@
+<app-marlujo-header></app-marlujo-header>
+
+<ion-content class="ion-padding neon-bg">
+<ion-fab vertical="top" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="abrirModalGasto()" class="fab-green">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+    @if (gastosPaginados().length === 0) {
+        <ion-text color="success">
+            <h2>¡Excelente! Todavía no registraste gastos</h2>
+            <p>Seguí así y mantené tus finanzas bajo control.</p>
+        </ion-text>
+    }
+    @else {
+        <div class="scroll-container">
+            <ion-grid>
+                <ion-row class="header">
+                    <ion-col>Fecha</ion-col>
+                    <ion-col>Nombre</ion-col>
+                    <ion-col>Monto</ion-col>
+                    <ion-col>Tipo</ion-col>
+                    <ion-col>%</ion-col>
+                </ion-row>
+
+                @for (gasto of gastosPaginados(); track gasto.id) {
+                    <ion-row>
+                        <ion-col>{{ gasto.fecha | date:'dd/MM/yyyy' }}</ion-col>
+                        <ion-col>{{ gasto.nombre }}</ion-col>
+                        <ion-col>${{ gasto.monto }}</ion-col>
+                        <ion-col>{{ gasto.tipo }}</ion-col>
+                        <ion-col>{{ porcentajeDelIngreso(gasto.monto) }}%</ion-col>
+                    </ion-row>
+                }
+            </ion-grid>
+        </div>
+    }
+</ion-content>
